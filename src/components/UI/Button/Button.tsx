@@ -1,7 +1,12 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 
-const button = props => {
+interface BtnInterface {
+    onClick?: Function,
+    theme?: Object,
+    style?: any
+}
+const button: React.FC<BtnInterface> = (props:any) => {
     const theme = props.theme;
     const Button = styled.button`
         background-color: transparent;
@@ -16,7 +21,6 @@ const button = props => {
             color: ${theme.black};
         }
     `
-
     return <Button onClick={props.onClick} style={props.style}>{props.children}</Button>
 }
 
