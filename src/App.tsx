@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import { ThemeProvider } from 'styled-components';
+import Header from './containers/Header/Header';
+import stylingTheme from './assets/stylingTheme';
+import FrontPage from './containers/FrontPage/FrontPage';
 
 const App: React.FC = () => {
+  const App = styled.div`
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+  `
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme = {stylingTheme} >
+      <App>
+        <Header />
+        <FrontPage />        
+      </App>
+    </ThemeProvider>
   );
 }
 
