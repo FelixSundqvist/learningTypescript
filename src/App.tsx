@@ -3,18 +3,18 @@ import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import Header from './containers/Header/Header';
 import stylingTheme from './assets/stylingTheme';
-import FrontPage from './containers/FrontPage/FrontPage';
+import FrontPage from './components/FrontPage/FrontPage';
 
 const App: React.FC = () => {
   const App = styled.div`
     text-align: center;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     height: 100%;
     width: 100%;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100vh 100vh;
   `
 
   return (

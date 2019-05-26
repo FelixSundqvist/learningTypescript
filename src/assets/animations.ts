@@ -1,4 +1,4 @@
-const animations = `
+export const headerAnimation = `
 @keyframes expand {
     from {
         width: 0%;
@@ -11,17 +11,35 @@ const animations = `
 @keyframes shrink {
     0% {
         width: 90%;
-        top: 0;
-        
+        right: 50%;
     }
-    75% {
+
+    100% {
         width: 0%;
+        right: 0%;
     }
 
-    100%{
-        top: -100%;
+}
+`
+
+export const galleryAnimation = `
+@keyframes moveLeft {
+    from{
+        left: 100%;
+    }
+    to{
+        left: 0;
+    }
+}
+@keyframes moveBack {
+    0% {
+        left: 0;
+        z-index: -1;
+    }
+    100% {
+        left: 100%;
         
     }
-}`
+}
+`
 
-export default animations;

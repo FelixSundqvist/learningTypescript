@@ -1,6 +1,7 @@
 const stylingTheme: Object = {
     mainColor: "#ff5d73",
     mainAccent: "#ff5d93",
+    mainLight: "#ff6da4",
     secondaryColor: "#494949",
     secondaryAccent: "#7c7a7a",
 

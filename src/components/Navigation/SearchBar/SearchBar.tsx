@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import Button from '../../UI/Button/Button';
-interface searchProps extends React.Props<any>{
+interface searchProps {
     theme?: Object
 }
 
@@ -31,7 +31,6 @@ const searchBar: React.FC<searchProps> = (props) => {
             outline: none;
         }
     `
-
     const buttonStyle = {
         position: "absolute",
         right: "4%",

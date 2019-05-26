@@ -4,9 +4,12 @@ const initialState:Object = {
 
 }
 
-const reducer = (state = initialState, action: Object) => {
-    //action.type = "ACTION"
-    return state;
+const reducer = (state = initialState, action: { type: string }) => {
+    switch(action.type) {
+
+        default: return state;
+    }
+    
 }
 
 export default reducer;

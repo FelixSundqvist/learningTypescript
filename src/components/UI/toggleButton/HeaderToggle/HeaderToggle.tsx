@@ -1,9 +1,8 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 
-
-interface iconProps extends React.Props<any>{
-    animationDelay?: Boolean,
+interface iconProps {
+    animationDelay?: boolean,
     toggleHeader: Function,
     theme: Object,
 }
@@ -15,36 +14,43 @@ const headerToggle: React.FC<iconProps> = (props:any) => {
         z-index: 999;
         top: 0;
         right: 0;
-        margin: 2vw;
-        padding: 2vh;
-        border: .5vh solid ${props => props.theme.white};
+        margin: .5vw;
+        padding: 3vh;
         border-radius: 50%;
+        background-color: ${props => props.theme.black};
+       
+        opacity: 0.5;
         display: ${props.animationDelay ? "none" : "block"};
+        transition: opacity 200ms ease;
         &:hover {
-            cursor: pointer;
-            box-shadow: .1rem 0 2rem ${props => props.theme.white};
-        }
+            cursor: pointer;   
+            opacity: 1;
 
+        }
         span {
             position: absolute;
             display: block;
-            height: 100%;
-            width: 100%;
-            color: ${props => props.theme.white};
-            font-size: 1vh;
-
-            padding-top: 1vh;
-            top: -50%;
-            left: -50%;
-            transform: translate(50%, 50%)
+            height: 10%;
+            width: 50%;
+            
+            background-color:${props => props.theme.white};
+            transform: translate(-50%);
+            &:nth-child(1){
+                top: 30%;
+            }
+            &:nth-child(2){
+                top: 50%;
+            }
+            &:nth-child(3){
+                top: 70%;
+            }
         }
-        
     `
-
     return <HeaderIcon onClick = {props.toggleHeader}> 
-    <span>
-        Menu
-    </span> </HeaderIcon>
+        <span />
+        <span />
+        <span />
+        </HeaderIcon>
 }
 
 export default withTheme(headerToggle);
