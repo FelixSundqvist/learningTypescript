@@ -39,10 +39,10 @@ const productsPage:React.FC<ProductsInterface> = (props) => {
     }, [])
 
 
-    let mappedCards = null;
+    let gameElementsArr = null;
 
     if(allGames) {
-        mappedCards = Object.keys(allGames).map(current => {
+        gameElementsArr = Object.keys(allGames).map(current => {
             const game:CardInterface = allGames[current];
             return <React.Fragment key ={shortid()}>
                     <Card 
@@ -71,7 +71,7 @@ const productsPage:React.FC<ProductsInterface> = (props) => {
         <ProductsPage>
             <Wrapper>
 
-            <Segment games = {mappedCards} />
+            <Segment games = {gameElementsArr} />
 
             </Wrapper>
         </ProductsPage>

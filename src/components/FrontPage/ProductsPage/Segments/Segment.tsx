@@ -13,8 +13,7 @@ const segment: React.FC<SegmentInterface> = (props) => {
     return (
         <Segment>
             <h1>Hottest Hits</h1>
-
-            <CardWrapper>
+            <CardWrapper backgroundColor="#ddc" >
                 { props.games }
             </CardWrapper>
         </Segment>
