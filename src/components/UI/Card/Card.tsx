@@ -1,7 +1,8 @@
 import React from 'react'
 import styled, { withTheme } from 'styled-components';
 import { Link } from 'react-router-dom';
-export interface CardInterface {
+import Badge from '../Badge/Badge';
+export interface CardInterface{
     theme?: Object,
     title: string,
     body: string,
@@ -10,6 +11,7 @@ export interface CardInterface {
     width?: string,
     height?: string,
     link: string,
+    consoles?: Array<string>
 }
 const card:React.FC<CardInterface> = props => {
     const Card = styled.div`
@@ -17,6 +19,7 @@ const card:React.FC<CardInterface> = props => {
         width: ${props.width ? props.width : "200px"};
         height: ${props.height ? props.height : "300px"};
         box-shadow: .5em .2em 1em #ccc;
+        background-color: ${props => props.theme ? props.theme.white : null};
         margin: 2rem;
         &:hover{
             cursor: pointer;
@@ -44,6 +47,12 @@ const card:React.FC<CardInterface> = props => {
         height: 40%;
         width: 100%;
     `
+    //badges for each consoles listed
+    const badges = props.consoles 
+    ? props.consoles.map(current => <Badge key={current} text={current} />)
+    : null;
+
+
     return (
         <Card>
             <Link to={props.link} className="link" />
@@ -51,6 +60,7 @@ const card:React.FC<CardInterface> = props => {
                 <img src={props.image ? props.image : ""} alt={props.title}/>
             </ImageDiv>
             <TextDiv>
+                {badges}
                 <h4>{props.title}</h4>
                 <b>{props.price}€</b>
             </TextDiv>

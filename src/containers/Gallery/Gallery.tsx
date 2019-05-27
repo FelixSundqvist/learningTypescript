@@ -4,6 +4,7 @@ import shortid from 'shortid';
 import styled, { withTheme } from 'styled-components';
 import slideContent from './slideContent';
 import Slide, { createSlideBlocks } from './Slide/Slide';
+import GalleryDots from './GalleryDots/GalleryDots';
 interface GalleryProps {
     theme?: Object,
     height?: string,
@@ -13,9 +14,15 @@ interface GalleryProps {
 const gallery:React.FC<GalleryProps> = (props) => {
     
     const [currentSlide, changeSlide] = useState(0);
+    let galleryTimer:any;
+    function timed() {
+            currentSlide <= slideContent.length - 2
+            ? changeSlide(slide => slide + 1) 
+            : changeSlide(0)
+            }
 
     useEffect(() => {
-        setTimeout(()=>{currentSlide <= slideContent.length - 2 ? changeSlide(c => c + 1) : changeSlide(0)}, 3000);})
+        galleryTimer = setTimeout(() => { timed() }, 3000)})
 
     const Gallery = styled.div`
         position: relative;
@@ -34,9 +41,21 @@ const gallery:React.FC<GalleryProps> = (props) => {
         width: 100%;
         overflow: hidden;
     `
+    const GalleryDotWrapper = styled.div`
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 999;
+        background-color: rgba(188,188,188,0.5);
+    `
+
+    const changeCurrentSlide = (id: number) => {
+        clearTimeout(galleryTimer)
+        changeSlide(id)
+    }
     //get inner content for slides from slideContent
     const completeSlides = slideContent.map((slide, id) => {
-        
         const flexDirection = slide.direction ? slide.direction : "row";
         return id === currentSlide
          ? <Slide 
@@ -49,12 +68,23 @@ const gallery:React.FC<GalleryProps> = (props) => {
             blockDirection={flexDirection} >
             {createSlideBlocks(slide)}</Slide>
     })
+    const dots = slideContent.map((item, id) => {
+        if(currentSlide === id){
+            return <GalleryDots onClick={() => changeCurrentSlide(id)} current />
+        }else{
+            return <GalleryDots onClick={() => changeCurrentSlide(id)}/>
+        }
+    })
+
 
     return (
         <Gallery>
             <Wrapper>
                 {completeSlides}
             </Wrapper>
+            <GalleryDotWrapper>
+                {dots}
+            </GalleryDotWrapper>
         </Gallery>
     )
 }

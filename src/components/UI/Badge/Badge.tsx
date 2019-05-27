@@ -28,15 +28,21 @@ const badge:React.FC<BadgeInterface> = props =>{
 
 
     const Badge = styled.span`
-        
-        padding: 16px;
-        background-color: ${colors}
+        color: white;
+        width: 16px;
+        padding: .2rem;
+        background-color: ${colors};
+        margin: 2px;
+        border-radius: 2rem;
+        font-size: .5rem;
     `
     
-
-
+    let text = props.text;
+    if(text === "XBOX ONE"){
+        text = "XBOX";
+    }
     return(
-        <Badge></Badge>
+        <Badge>{text}</Badge>
     )
 }  
 

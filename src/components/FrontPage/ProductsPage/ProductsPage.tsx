@@ -51,13 +51,17 @@ const productsPage:React.FC<ProductsInterface> = (props) => {
                      image={game.image}
                      price={game.price}
                      link={game.link}
+                     consoles={game.consoles}
                      />
                      <Route path={game.link} 
                         render={() => 
                         <ProductInfo 
-                            body={game.body} 
-                            title={game.title} 
-                            image={game.image} />}
+                        title={game.title}
+                        body={game.body}
+                        image={game.image}
+                        price={game.price}
+                        link={game.link}
+                        consoles={game.consoles} />}
                         />
                     </React.Fragment>
          })

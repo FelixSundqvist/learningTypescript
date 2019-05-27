@@ -1,13 +1,23 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import Backdrop from '../UI/Backdrop/Backdrop';
 import {  withRouter, RouteComponentProps } from 'react-router-dom';
-
-interface ProductInterface extends RouteComponentProps{
+import Badge from '../UI/Badge/Badge';
+import CancelButton from '../UI/CancelButton/CancelButton';
+interface ProductInterface extends RouteComponentProps {
+    theme?: {
+        [key:string] : any
+    },
     title: string,
     body: string,
-    [key: string]: any
+    price: string,
+    image?: string,
+    width?: string,
+    height?: string,
+    link: string,
+    consoles?: Array<string>
 }
+
 
 const productInfo:React.FC<ProductInterface> = props => {
     
@@ -37,8 +47,9 @@ const productInfo:React.FC<ProductInterface> = props => {
     const TextDiv = styled.div`
         height: 40%;
         width: 100%;
-        padding: 2vw;
-
+        padding: 0 4vw;
+        height: 100%;
+        background-color: ${props.theme ? props.theme.secondaryAccent : "#ccf"};
         p{
             text-align: left;
         }
@@ -47,14 +58,21 @@ const productInfo:React.FC<ProductInterface> = props => {
         props.history.push("/");
     }
 
+
+    const badges = props.consoles 
+    ? props.consoles.map(current => <Badge text={current} key={current} />)
+    : null;
+    
     return (
         <>
             <Backdrop show={true} onClick={backdropClick} />
             <ProductInfo>
+                <CancelButton onClick={backdropClick}/>
                 <ImageDiv>
                     <img src={props.image ? props.image : ""} alt={props.title}/>
                 </ImageDiv>
                 <TextDiv>
+                    {badges}
                     <h2>{props.title}</h2>
                     <p>{props.body}</p>
                 </TextDiv>
@@ -63,4 +81,4 @@ const productInfo:React.FC<ProductInterface> = props => {
     )
 }
 
-export default withRouter(productInfo);
+export default withRouter(withTheme(productInfo));
