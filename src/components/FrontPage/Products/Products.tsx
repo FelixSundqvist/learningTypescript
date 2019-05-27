@@ -15,7 +15,7 @@ interface ProductsInterface {
     theme?: Object
 }
 
-const productsPage:React.FC<ProductsInterface> = (props) => {
+const products:React.FC<ProductsInterface> = (props) => {
     const [allGames, setGames] = useState();
 
     const ProductsPage = styled.div`
@@ -38,6 +38,10 @@ const productsPage:React.FC<ProductsInterface> = (props) => {
             setGames(res.data)
         })
         .catch(error => console.log(error))
+
+        return () => {
+           setGames({})
+        }
     }, [])
 
 
@@ -82,4 +86,4 @@ const productsPage:React.FC<ProductsInterface> = (props) => {
     )
 }
 
-export default productsPage;
+export default products;

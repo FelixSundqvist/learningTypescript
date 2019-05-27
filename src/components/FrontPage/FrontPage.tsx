@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components'; 
 import Gallery from '../../containers/Gallery/Gallery';
-import ProductsPage from './ProductsPage/ProductsPage';
+import ProductsPage from './Products/Products';
 import Categories from './Categories/Categories';
 interface frontPageProps {
     theme?: Object
