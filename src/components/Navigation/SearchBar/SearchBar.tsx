@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import Button from '../../UI/Button/Button';
+import Button from '../../UI/Buttons/Button';
 interface searchProps {
     theme?: Object
 }
@@ -42,7 +42,7 @@ const searchBar: React.FC<searchProps> = (props) => {
 
     return(
         <SearchBarWrapper >
-            <SearchBar type = "text"/>
+            <SearchBar type = "text" />
             <Button style={buttonStyle} ></Button>
         </SearchBarWrapper>
     )

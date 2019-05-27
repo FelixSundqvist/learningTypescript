@@ -1,35 +1,39 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components'; 
 import Gallery from '../../containers/Gallery/Gallery';
-
+import ProductsPage from './ProductsPage/ProductsPage';
+import Categories from './Categories/Categories';
 interface frontPageProps {
     theme?: Object
 }
 
 const frontPage: React.FC<frontPageProps> = (props) => {
     const FrontPage = styled.div`
-        grid-row: 1;
-        grid-column: 1 / span 3;
         background-color: ${props => props.theme.black};
-        display: flex;
-        justify-content: center;
         
+        display: grid;
+        grid-gap: 0;
+        grid-template-columns: repeat(6, (100 / 6)vw);
+        grid-template-rows: 100vh 1fr;
     `
     const ContentWrapper = styled.div`
-        flex: 0 0 100vw;
         background-color: ${props => props.theme.white};
         box-shadow: 1vh 2vh 3vh #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         background-color: inherit;
+        
+        grid-row: 2;
+        grid-column: 1 / span 6;
+
+        display: flex;
     `
     
     return (
         <FrontPage>
-            <ContentWrapper>
-                
             <Gallery />
+            
+            <ContentWrapper>
+                <Categories />
+                <ProductsPage />
             </ContentWrapper>
         </FrontPage> 
     )

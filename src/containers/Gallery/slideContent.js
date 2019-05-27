@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../components/UI/Button/Button';
+import Button from '../../components/UI/Buttons/Button';
 import theme from '../../assets/stylingTheme';
 
 let slideContent = [

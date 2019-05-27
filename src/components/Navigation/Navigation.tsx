@@ -6,8 +6,10 @@ import SearchBar from './SearchBar/SearchBar';
 interface NavProps{
     listItems? : Array<any>
     theme?: {[key: string]: any;},
-    toggleHeader: Function,
-    showHeader?: boolean
+    toggleHeader?: any,
+    showHeader?: boolean,
+    header?: boolean,
+    style?: {[key: string]: any;},
 } 
 const navigation: React.FC<NavProps> = (props) => {
 
@@ -17,24 +19,29 @@ const navigation: React.FC<NavProps> = (props) => {
         height: 100%;
         display: flex;
         ul {
-            margin: 0 2vw;
+            margin: 0;
             padding: 0;
             flex: 1;
             display: flex;
+            flex-direction: ${props.header ? "row" : "column"};
+            text-align: ${props.header ? "center" : "left"};
             list-style-type: none;
             li{
                 z-index: 999;
-                height: 100%;
-                padding: 1vw;
+                height: ${props.header ? "100%" : "3rem"};
+                padding: ${props.header ? "1vw" : "1rem"};;
                 font-size: 2vh;
                 color: ${props => props.theme.white};
-                border-right: .2rem solid ${props => props.theme.black};
+                /* border-right: .2rem solid ${props => props.theme.black}; */
                 transition: background-color 300ms ease;
 
                 &:hover{
                     ${props.showHeader && props.theme 
                         ? "cursor: pointer; background-color:"+props.theme.mainAccent
                         : null}
+                    ${!props.header && props.theme  
+                        ? "cursor: pointer; background-color:"+props.theme.mainAccent
+                        : null }
                 }
             }
         }
@@ -53,20 +60,30 @@ const navigation: React.FC<NavProps> = (props) => {
         padding: 1vh;
         z-index: 9999;
     `
+    let navigationType  = null;
+
+    if(props.header){
+        navigationType = <>
+            <NavIconWrapper>
+                <NavArrow toggleHeader = {props.toggleHeader} />
+                <SearchBar />
+            </NavIconWrapper>
+        </>
+    }
 
         return (
-            <Nav> 
+            <Nav  > 
                 <ul>
-                    <li>Menu</li>
-                    <li>Contact</li>
-                    <li>Open</li>
+                    <li>Playstation 4</li>
+                    <li>Xbox One</li>
+                    <li>PC</li>
+                    <li>Nintendo</li>
+                    {props.header ? <li><b>CART</b></li> : null}
                 </ul>
-                <NavIconWrapper>
-                    <NavArrow 
-                        toggleHeader = {props.toggleHeader} />
-                    <SearchBar />
-                </NavIconWrapper>
-                <NavBackground />
+                
+                {navigationType}
+                
+                <NavBackground style={props.style} />
             </Nav>)
     
 }

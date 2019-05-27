@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
 import styled, { withTheme } from 'styled-components';
-import Navigation from '../../components/Navigation/Navigation';
-import HeaderToggle from '../../components/UI/toggleButton/HeaderToggle/HeaderToggle';
+import Navigation from '../Navigation/Navigation';
+import HeaderToggle from '../UI/HeaderToggle/HeaderToggle';
 import { headerAnimation } from '../../assets/animations';
-import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import Backdrop from '../UI/Backdrop/Backdrop';
 
 interface headerProps{
     theme?: Object
@@ -79,6 +79,7 @@ const header: React.FC<headerProps> = (props) => {
             <HeaderWrapper>
                 <Header>
                     <Navigation 
+                        header
                         showHeader = { toggleHeader.show } 
                         toggleHeader = { toggle } />
                 </Header>

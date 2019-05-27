@@ -20,6 +20,10 @@ const gallery:React.FC<GalleryProps> = (props) => {
     const Gallery = styled.div`
         position: relative;
         margin: 0 auto;
+        
+        grid-row: 1;
+        grid-column: 1 / span 6;
+
         height: ${props.height ? props.height: "100%" };
         width: ${props.height ? props.height: "100%" };;
     `
@@ -34,7 +38,6 @@ const gallery:React.FC<GalleryProps> = (props) => {
     const completeSlides = slideContent.map((slide, id) => {
         
         const flexDirection = slide.direction ? slide.direction : "row";
-        console.log(flexDirection)
         return id === currentSlide
          ? <Slide 
             key={shortid()}
