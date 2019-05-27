@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react';
 import styled, { withTheme } from 'styled-components'; 
-import Gallery from '../containers/AutoPlayGallery/Gallery';
-import ProductsPage from './Products/Products';
-import Categories from './Categories/Categories';
-import axios from '../axios-games';
+import Gallery from '../AutoPlayGallery/Gallery';
+import ProductsPage from '../../components/Products/Products';
+import Categories from '../../components/Categories/Categories';
+import axios from '../../axios-games';
 interface frontPageProps {
     theme?: Object
 }

@@ -31,6 +31,14 @@
       "link" : "/cathrine_full_body",
       "price" : 69.99,
       "title" : "Cathrine Full Body"
+    },
+    "RAGE 2" : {
+      "body": "Remember the post-apocalyptic world that was left behind when the destructive asteroid came crashing into the Earth in RAGE? RAGE 2 is set decades after where mankind is on its last legs and the earth is even more unforgiving than before. You will follow the story of Walker, the last ranger of the Vineland as he attempts to survive in the dangerous world that he was born into. His ultimate mission? To take down the tyrannical Authority. This open-world offers insane action featuring a wide range of weapons, interesting powers and dangerous mutants to fight. The open-world in RAGE 2 is incredibly diverse and you will battle enemies in a range of conditions including open deserts to over-grown and mysterious forests. The remaining lives have learnt to survive in this challenging world, and now it’s Walker’s turn. RAGE 2 has various scenarios for you to take part in other than shooting bandits offering incredibly interesting and diverse gameplay. ",
+      "consoles" : [ "PS4", "XBOX ONE", "PC" ],
+      "image" : "https://images-na.ssl-images-amazon.com/images/I/91P33qRxoeL._AC_SL1500_.jpg",
+      "link" : "/rage2",
+      "price" : 69.99,
+      "title" : "Rage 2"
     }
 
   }

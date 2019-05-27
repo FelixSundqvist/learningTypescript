@@ -3,7 +3,8 @@ import styled, { withTheme } from 'styled-components';
 import Backdrop from '../UI/Backdrop/Backdrop';
 import {  withRouter, RouteComponentProps } from 'react-router-dom';
 import Badge from '../UI/Badge/Badge';
-import CancelButton from '../UI/CancelButton/CancelButton';
+import CancelButton from '../UI/Buttons/CancelButton/CancelButton';
+import CartButton from '../UI/Buttons/CartButton/CartButton';
 interface ProductInterface extends RouteComponentProps {
     theme?: {
         [key:string] : any
@@ -33,17 +34,18 @@ const productInfo:React.FC<ProductInterface> = props => {
         border: 2px solid black;
         margin: 2rem;
         overflow: auto;
-
+        display: flex;
     `
     const ImageDiv = styled.div`
         padding: 1vh;
         height: 60%;
-        width: 100%;
+        width: 50%;
         img{
             height: 100%;
             width: auto;
         }
     `
+
     const TextDiv = styled.div`
         height: 40%;
         width: 100%;
@@ -62,7 +64,7 @@ const productInfo:React.FC<ProductInterface> = props => {
     const badges = props.consoles 
     ? props.consoles.map(current => <Badge text={current} key={current} />)
     : null;
-    
+   
     return (
         <>
             <Backdrop show={true} onClick={backdropClick} />
@@ -71,10 +73,13 @@ const productInfo:React.FC<ProductInterface> = props => {
                 <ImageDiv>
                     <img src={props.image ? props.image : ""} alt={props.title}/>
                 </ImageDiv>
+
                 <TextDiv>
-                    {badges}
+                    
                     <h2>{props.title}</h2>
+                    {badges}
                     <p>{props.body}</p>
+                    <CartButton />
                 </TextDiv>
             </ProductInfo>
         </>

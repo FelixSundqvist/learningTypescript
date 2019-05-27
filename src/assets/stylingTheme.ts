@@ -4,7 +4,8 @@ const stylingTheme: Object = {
     mainLight: "#ff6da4",
     secondaryColor: "#494949",
     secondaryAccent: "#eef",
-
+    buttonGreen: "mediumspringgreen",
+    buttonRed: "crimson",
     black: "#000",
     white: "#fff",
     margin: "1vw"

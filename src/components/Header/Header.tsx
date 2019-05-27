@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import styled, { withTheme } from 'styled-components';
 import Navigation from '../Navigation/Navigation';
-import HeaderToggle from '../UI/HeaderToggle/HeaderToggle';
+import HeaderToggle from '../UI/Buttons/HeaderToggle/HeaderToggle';
 import { headerAnimation } from '../../assets/animations';
 import Backdrop from '../UI/Backdrop/Backdrop';
 

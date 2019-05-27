@@ -33,6 +33,10 @@ const card:React.FC<CardInterface> = props => {
             width: 100%;
             display: block;
         }
+        @media all and (max-width: 922px){
+            width: 200px;
+            height: 350px;
+        }
     `
     const ImageDiv = styled.div`
         padding: 1em;

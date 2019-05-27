@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import icon from '../../../assets/icons/times-solid.svg';
+import icon from '../../../../assets/icons/times-solid.svg';
 
 interface CancelButtonInterface{
     onClick: any

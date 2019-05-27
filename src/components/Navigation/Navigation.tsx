@@ -27,7 +27,7 @@ const navigation: React.FC<NavProps> = (props) => {
             text-align: ${props.header ? "center" : "left"};
             list-style-type: none;
             li{
-                z-index: 999;
+                z-index: 99999;
                 height: ${props.header ? "100%" : "3rem"};
                 padding: ${props.header ? "1vw" : "1rem"};;
                 font-size: 2vh;

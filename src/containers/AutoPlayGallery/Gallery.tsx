@@ -12,8 +12,8 @@ interface GalleryProps {
 } 
 
 const gallery:React.FC<GalleryProps> = (props) => {
-    
     const [currentSlide, changeSlide] = useState(0);
+    const slideTime = 4000;
     let galleryTimer:any;
     function timed() {
             currentSlide <= slideContent.length - 2
@@ -22,7 +22,7 @@ const gallery:React.FC<GalleryProps> = (props) => {
             }
 
     useEffect(() => {
-        galleryTimer = setTimeout(() => { timed() }, 3000)
+        galleryTimer = setTimeout(() => { timed() }, slideTime)
         return () => {
             clearTimeout(galleryTimer);
         }
@@ -52,7 +52,7 @@ const gallery:React.FC<GalleryProps> = (props) => {
         left: 50%;
         transform: translate(-50%,-50%);
         z-index: 999;
-        background-color: rgba(188,188,188,0.5);
+        background-color: rgba(188, 188 , 188, 0.5);
     `
 
     const changeCurrentSlide = (id: number) => {

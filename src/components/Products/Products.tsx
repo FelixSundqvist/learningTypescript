@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import { Route } from 'react-router-dom';
-import axios from '../../axios-games';
 import shortid from 'shortid';
 import styled, { withTheme } from 'styled-components';
-
 import Card, {CardInterface} from '../UI/Card/Card';
 import ProductInfo from '../ProductInfo/ProductInfo';
 import Segment from './Segments/Segment';
@@ -33,8 +31,6 @@ const products:React.FC<ProductsInterface> = (props) => {
         height: 100%;
         margin: 0 auto;
     `
-
-
     let allProducts:any;
 
     if(props.fetchedProducts) {
@@ -51,13 +47,15 @@ const products:React.FC<ProductsInterface> = (props) => {
                      />
                      <Route path={game.link} 
                         render={() => 
+
                         <ProductInfo 
                         title={game.title}
                         body={game.body}
                         image={game.image}
                         price={game.price}
                         link={game.link}
-                        consoles={game.consoles} />}
+                        consoles={game.consoles}
+                         />}
                         />
                     </React.Fragment>
          })
@@ -76,4 +74,4 @@ const products:React.FC<ProductsInterface> = (props) => {
     )
 }
 
-export default products;
+export default withTheme(products);

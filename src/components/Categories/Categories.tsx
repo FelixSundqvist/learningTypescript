@@ -10,6 +10,9 @@ const categories:React.FC<CategoriesInterface> = props =>{
     const Categories = styled.aside`
         flex: 1;
         padding: 2vh;
+        @media all and (max-width: 992px){
+            display: none;
+        }
     `
 
     return(

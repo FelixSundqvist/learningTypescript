@@ -1,6 +1,5 @@
 import React from 'react'
-import styled, { withTheme } from 'styled-components';
-import Navigation from '../../Navigation/Navigation';
+import styled from 'styled-components';
 
 interface BadgeInterface {
     theme?: any,

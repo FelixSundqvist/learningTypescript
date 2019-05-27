@@ -13,7 +13,7 @@ interface SlideProps {
 } 
 
 const slide: React.FC<SlideProps> = (props) => {
-    const transitionTime = props.slideTime || 400;
+    const transitionTime = props.slideTime || 600;
     const Slide = styled.div`
     position: absolute;
     top: 0;

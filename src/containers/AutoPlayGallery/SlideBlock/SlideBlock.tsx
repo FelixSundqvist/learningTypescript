@@ -12,10 +12,11 @@ interface BlockProps {
 
 const slide: React.FC<BlockProps> = (props) => {
     const bgColor:String = props.backgroundColor ? props.backgroundColor : "";
-
     const SlideBlock = styled.div`
         flex: 1;
         font-size: 1.5rem;
+        background-size: cover;
+        background-repeat: none;
     `
     return <SlideBlock style={{...props.style, backgroundColor: props.backgroundColor}}>{props.children}</SlideBlock>
 }
