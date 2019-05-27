@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import stylingTheme from './assets/stylingTheme';
-import FrontPage from './components/FrontPage/FrontPage';
+import FrontPage from './components/FrontPage';
 import Header from './components/Header/Header';
 import { BrowserRouter, Route } from "react-router-dom"
 

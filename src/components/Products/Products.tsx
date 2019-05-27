@@ -1,22 +1,24 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
-import axios from '../../../axios-games';
+import axios from '../../axios-games';
 import shortid from 'shortid';
 import styled, { withTheme } from 'styled-components';
 
-import Card, {CardInterface} from '../../UI/Card/Card';
-import ProductInfo from '../../ProductInfo/ProductInfo';
+import Card, {CardInterface} from '../UI/Card/Card';
+import ProductInfo from '../ProductInfo/ProductInfo';
 import Segment from './Segments/Segment';
-import Spinner from '../../UI/Spinner/Spinner';
-
+import Spinner from '../UI/Spinner/Spinner';
 
 interface ProductsInterface {
-    theme?: Object
+    theme?: Object,
+    fetchedProducts:{
+        [key:string] : any
+    }
 }
 
 const products:React.FC<ProductsInterface> = (props) => {
-    const [allGames, setGames] = useState();
+    
 
     const ProductsPage = styled.div`
         flex: 5;
@@ -31,25 +33,13 @@ const products:React.FC<ProductsInterface> = (props) => {
         height: 100%;
         margin: 0 auto;
     `
-    useEffect(() =>
-    {
-        axios.get("/Games.json")
-        .then(res => {
-            setGames(res.data)
-        })
-        .catch(error => console.log(error))
-
-        return () => {
-           setGames({})
-        }
-    }, [])
 
 
-    let gameElementsArr:any;
+    let allProducts:any;
 
-    if(allGames) {
-        gameElementsArr = Object.keys(allGames).map(current => {
-            const game:CardInterface = allGames[current];
+    if(props.fetchedProducts) {
+        allProducts = Object.keys(props.fetchedProducts).map(current => {
+            const game:CardInterface = props.fetchedProducts[current];
             return <React.Fragment key ={shortid()}>
                     <Card 
                      title={game.title}
@@ -72,14 +62,14 @@ const products:React.FC<ProductsInterface> = (props) => {
                     </React.Fragment>
          })
     }else{
-        gameElementsArr = <Spinner />
+        allProducts = <Spinner />
     }
 
     return (
         <ProductsPage>
             <Wrapper>
 
-            <Segment games = {gameElementsArr} />
+            <Segment games = {allProducts} />
 
             </Wrapper>
         </ProductsPage>

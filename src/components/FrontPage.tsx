@@ -1,13 +1,16 @@
-import React from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState, useEffect } from 'react';
 import styled, { withTheme } from 'styled-components'; 
-import Gallery from '../../containers/Gallery/Gallery';
+import Gallery from '../containers/AutoPlayGallery/Gallery';
 import ProductsPage from './Products/Products';
 import Categories from './Categories/Categories';
+import axios from '../axios-games';
 interface frontPageProps {
     theme?: Object
 }
 
 const frontPage: React.FC<frontPageProps> = (props) => {
+    const [fetchedProducts, setProducts] = useState();
     const FrontPage = styled.div`
         background-color: ${props => props.theme.black};
         display: grid;
@@ -23,6 +26,20 @@ const frontPage: React.FC<frontPageProps> = (props) => {
         grid-column: 1 / span 6;
         display: flex;
     `
+
+    useEffect(() =>
+    {
+        axios.get("/Games.json")
+        .then(res => {
+            setProducts(res.data)
+        })
+        .catch(error => console.log(error))
+
+        return () => {
+        setProducts({})
+        }
+    }, [])
+
     
     return (
         <FrontPage>
@@ -32,7 +49,7 @@ const frontPage: React.FC<frontPageProps> = (props) => {
             <ContentWrapper>
 
                 <Categories />
-                <ProductsPage />
+                <ProductsPage fetchedProducts={fetchedProducts} />
 
             </ContentWrapper>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardWrapper from '../../../CardWrapper/CardWrapper';
-import Spinner from '../../../UI/Spinner/Spinner';
+import CardWrapper from '../../CardWrapper/CardWrapper';
+import Spinner from '../../UI/Spinner/Spinner';
 import { isNull } from 'util';
 interface SegmentInterface {
     theme?: Object,
