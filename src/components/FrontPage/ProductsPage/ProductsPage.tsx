@@ -8,6 +8,8 @@ import styled, { withTheme } from 'styled-components';
 import Card, {CardInterface} from '../../UI/Card/Card';
 import ProductInfo from '../../ProductInfo/ProductInfo';
 import Segment from './Segments/Segment';
+import Spinner from '../../UI/Spinner/Spinner';
+
 
 interface ProductsInterface {
     theme?: Object
@@ -39,7 +41,7 @@ const productsPage:React.FC<ProductsInterface> = (props) => {
     }, [])
 
 
-    let gameElementsArr = null;
+    let gameElementsArr:any;
 
     if(allGames) {
         gameElementsArr = Object.keys(allGames).map(current => {
@@ -65,6 +67,8 @@ const productsPage:React.FC<ProductsInterface> = (props) => {
                         />
                     </React.Fragment>
          })
+    }else{
+        gameElementsArr = <Spinner />
     }
 
     return (

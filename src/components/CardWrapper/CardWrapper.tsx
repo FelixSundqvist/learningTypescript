@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled, { withTheme } from 'styled-components';
 
 interface CardWrapperInterface {
@@ -9,7 +9,9 @@ interface CardWrapperInterface {
 }
 
 const CardWrapper:React.FC<CardWrapperInterface> = props => {
-
+    useEffect(() => {
+        
+    })
     const bgColor:string|null = props.backgroundColor? props.backgroundColor : null;
 
     const CardContainer = styled.div`

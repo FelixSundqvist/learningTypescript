@@ -22,7 +22,12 @@ const gallery:React.FC<GalleryProps> = (props) => {
             }
 
     useEffect(() => {
-        galleryTimer = setTimeout(() => { timed() }, 3000)})
+        galleryTimer = setTimeout(() => { timed() }, 3000)
+        return () => {
+            clearTimeout(galleryTimer);
+        }
+    })
+
 
     const Gallery = styled.div`
         position: relative;
