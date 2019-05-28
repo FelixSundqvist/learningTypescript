@@ -3,7 +3,7 @@ import React from 'react';
 import shortid from 'shortid';
 import Card, { CardInterface } from '../components/CardWrapper/Card/Card';
 import { Route } from 'react-router';
-import ProductInfo from '../components/ProductInfo/ProductInfo';
+import ProductInfo from '../components/FrontPage/ProductInfo/ProductInfo';
 
 const createCards = (products:{[key:string] : any}) => {
     return Object.keys(products).map(current => {

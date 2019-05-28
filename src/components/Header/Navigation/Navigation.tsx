@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import NavArrow from '../UI/NavIcons/NavArrow';
+import NavArrow from '../../UI/NavIcons/NavArrow';
 import SearchBar from './SearchBar/SearchBar';
 
 interface NavProps{

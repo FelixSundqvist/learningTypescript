@@ -1,14 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled, { withTheme } from 'styled-components'; 
 import { connect } from 'react-redux';
 import Gallery from '../AutoPlayGallery/Gallery';
-import Products from '../../components/Products/Products';
-import Categories from '../../components/Categories/Categories';
+import Products from '../../components/FrontPage/Products/Products';
+import Categories from '../../components/FrontPage/Categories/Categories';
 import axios from '../../axios-games';
-import * as actionTypes from '../../store/actions/actionTypes'
-import jsonGames from '../../assets/fakewebpage-b18d3-export.json';
+import * as actionTypes from '../../store/actions/actionTypes';
 import * as actions from '../../store/actions/actions';
+import jsonGames from '../../assets/fakewebpage-b18d3-export.json';
+
 
 interface frontPageProps {
     theme?: Object,
@@ -16,8 +17,6 @@ interface frontPageProps {
 }
 
 const frontPage: React.FC<frontPageProps> = (props) => {
-    const [fetchedProducts, setProducts] = useState();
-    
     const FrontPage = styled.div`
         background-color: ${props => props.theme.black};
         display: grid;

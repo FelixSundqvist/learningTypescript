@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import Backdrop from '../UI/Backdrop/Backdrop';
-import Badge from '../UI/Badge/Badge';
-import CancelButton from '../UI/Buttons/CancelButton/CancelButton';
-import CartButton from '../UI/Buttons/CartButton/CartButton';
+import Backdrop from '../../UI/Backdrop/Backdrop';
+import Badge from '../../UI/Badge/Badge';
+import CancelButton from '../../UI/Buttons/CancelButton/CancelButton';
+import CartButton from '../../UI/Buttons/CartButton/CartButton';
 import { connect } from 'react-redux';
 interface ProductInterface{
     theme?: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import Button from '../../UI/Buttons/Button';
+import Button from '../../../UI/Buttons/Button';
 interface searchProps {
     theme?: Object
 }

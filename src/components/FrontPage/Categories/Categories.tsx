@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { withTheme } from 'styled-components';
-import Navigation from '../Navigation/Navigation';
+import Navigation from '../../Header/Navigation/Navigation';
 
 interface CategoriesInterface {
     theme?: any
