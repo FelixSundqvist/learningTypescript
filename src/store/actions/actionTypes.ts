@@ -1,1 +1,1 @@
-export const TEST:string = 'TEST';
+export const ADD_GAMES:string = 'ADD_GAMES';

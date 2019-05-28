@@ -14,6 +14,9 @@ const cancelButton: React.FC<CancelButtonInterface> = props => {
         &:hover{
             cursor: pointer;
         }
+    @media all and (max-width: 992px){
+        width: 15px;
+    }
     `
     return(
     <CancelButton onClick={props.onClick}> 

@@ -1,17 +1,20 @@
-import React, {useEffect} from 'react'
+import React from 'react'
+import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
+import { Router } from 'react-router-dom';
+import createCards from '../../utility/createCards';
 
 interface CardWrapperInterface {
     theme?: Object,
     width?: string,
     height?: string,
-    backgroundColor?: string
+    backgroundColor?: string,
+    games?: any,
+    gamesFromState: any
 }
 
 const CardWrapper:React.FC<CardWrapperInterface> = props => {
-    useEffect(() => {
-        
-    })
+
     const bgColor:string|null = props.backgroundColor? props.backgroundColor : null;
 
     const CardContainer = styled.div`
@@ -23,12 +26,17 @@ const CardWrapper:React.FC<CardWrapperInterface> = props => {
         align-items: space-between;
         flex-wrap: wrap;
     ` 
-
+    const games = props.gamesFromState ? createCards(props.gamesFromState) : null;
+    
     return (
         <CardContainer>
-            {props.children}
+            {games}
         </CardContainer>
     )
 }
-
-export default withTheme(CardWrapper);
+const mapStateToProps = (state:any, ownProps:any) => {
+    return {
+        gamesFromState: state.games
+    }
+}
+export default connect(mapStateToProps)(withTheme(CardWrapper));

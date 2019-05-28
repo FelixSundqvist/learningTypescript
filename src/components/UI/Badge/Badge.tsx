@@ -14,7 +14,10 @@ const badge:React.FC<BadgeInterface> = props =>{
         case "XBOX ONE":
             colors = "green"
             break;
-        case "NS":
+        case "SWITCH":
+            colors = "red"
+            break;
+        case "NINTENDO":
             colors = "red"
             break;
         case "PC":

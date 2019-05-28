@@ -2,33 +2,42 @@ import React from 'react';
 import styled from 'styled-components';
 import CardWrapper from '../../CardWrapper/CardWrapper';
 import Spinner from '../../UI/Spinner/Spinner';
-import { isNull } from 'util';
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import ProductInfo from '../../ProductInfo/ProductInfo';
+
+
 interface SegmentInterface {
     theme?: Object,
-    games: Array<any> |null
+    games?: Array<any> | undefined
     
 }
 const segment: React.FC<SegmentInterface> = (props) => {
     const Segment = styled.div`
       
     `
+    let items:any;
 
-    let games:any;
-    if(games === null){
-        games = <Spinner />;
+    if(!items){
+        items = <Spinner />;
     }else{
-       games = props.games;
+       items = props.games;
     }
     
     
     return (
         <Segment>
             <h1>Hottest Hits</h1>
-            <CardWrapper backgroundColor="#ddc" >
-                {games}
-            </CardWrapper>
+            <CardWrapper backgroundColor="#ddc" />
+            <Route path="/products/title=:title" exact component={ProductInfo}/>
         </Segment>
     )
 }
 
-export default segment;
+const mapStateToProps = (state:any, ownProps:any) => {
+    return {
+        games: state.games
+    }
+}
+
+export default connect(mapStateToProps)(segment);

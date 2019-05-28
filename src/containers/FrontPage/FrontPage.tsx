@@ -1,16 +1,23 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react';
 import styled, { withTheme } from 'styled-components'; 
+import { connect } from 'react-redux';
 import Gallery from '../AutoPlayGallery/Gallery';
-import ProductsPage from '../../components/Products/Products';
+import Products from '../../components/Products/Products';
 import Categories from '../../components/Categories/Categories';
 import axios from '../../axios-games';
+import * as actionTypes from '../../store/actions/actionTypes'
+import jsonGames from '../../assets/fakewebpage-b18d3-export.json';
+import * as actions from '../../store/actions/actions';
+
 interface frontPageProps {
-    theme?: Object
+    theme?: Object,
+    addGamesToState: any
 }
 
 const frontPage: React.FC<frontPageProps> = (props) => {
     const [fetchedProducts, setProducts] = useState();
+    
     const FrontPage = styled.div`
         background-color: ${props => props.theme.black};
         display: grid;
@@ -26,8 +33,10 @@ const frontPage: React.FC<frontPageProps> = (props) => {
         grid-column: 1 / span 6;
         display: flex;
     `
+    const { Games } = jsonGames;
+    props.addGamesToState(Games);
 
-    useEffect(() =>
+/*     useEffect(() =>
     {
         axios.get("/Games.json")
         .then(res => {
@@ -38,24 +47,38 @@ const frontPage: React.FC<frontPageProps> = (props) => {
         return () => {
         setProducts({})
         }
-    }, [])
+    }, []) */
 
+    /*
+     useEffect(() => {
+        const { Games } = jsonGames
+        setProducts(Games)
+
+    }, [fetchedProducts]) */
     
+    /* <Products fetchedProducts={fetchedProducts} /> */
     return (
         <FrontPage>
             {/* full page gallery */}
             <Gallery />
-            
             <ContentWrapper>
 
                 <Categories />
-                <ProductsPage fetchedProducts={fetchedProducts} />
+                <Products />
 
             </ContentWrapper>
-
-
         </FrontPage> 
     )
 }
+const mapStateToProps = (state:any, ownProps:any) => {
+    return {
+        gamesFromState: state.games
+    }
+}
+const mapDispatchToProps = (dispatch:Function, ownProps:any) => {
+    return {
+       addGamesToState: (allGames:{[key:string]:any}) => dispatch(actions.getGames(allGames))
+    }
+}
 
-export default withTheme(frontPage);
+export default connect(mapStateToProps, mapDispatchToProps)(withTheme(frontPage));

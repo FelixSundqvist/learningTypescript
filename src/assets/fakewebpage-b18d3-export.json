@@ -1,45 +1,53 @@
 {
-  "Games" : {
-    "Borderlands 3" : {
-      "body" : "Pre-order bonus: Gold weapon skins & trinket.  Super Deluxe includes the Season Pass, Deluxe bonus content and steelbook!",
-      "consoles" : [ "PS4", "XBOX ONE", "PC" ],
-      "image" : "https://s.s-bol.com/imgbase0/imagebase3/large/FC/4/4/7/4/9200000108974744.jpg",
-      "price" : 89.99,
-      "title" : "Borderlands 3",
-      "link" : "/borderlands3"
-    },
-    "Devil May Cry 5" : {
-      "body" : "Complete with its signature blend of stylized action and otherworldly characters, Devil May Cry 5 brings more over-the-top action. The demon hunter, Nero, returns with a thirst for vengeance and determination stop the demonic invasion that has taken over Red Grave City. Nero must head to the city to destroy the hellish demons with his weapons craftswoman and new partner-in-crime, Nico.   Prepare for an intense mix of high-energy action with high-octane stylized action and an abundance of demon slaying. It’s frantic, fast and lots of fun. With new ground-breaking graphics and a legendary battle of good and evil, Devil May Cry 5 will provide utterly insane action.",
-      "consoles" : [ "PS4", "XBOX ONE", "PC" ],
-      "image" : "https://s.s-bol.com/imgbase0/imagebase3/large/FC/9/2/2/1/9200000095301229.jpg",
-      "link" : "/devil_may_cry5",
-      "price" : 59.99,
-      "title" : "Devil May Cry 5"
-    },
-    "Sekiro: Shadows Die Twice" : {
-      "body" : "Carve your own clever path to vengeance in an all-new adventure from developer FromSoftware, creators of Bloodborne and the Dark Souls series.  In Sekiro: Shadows Die Twice you are the “one-armed wolf”, a disgraced and disfigured warrior rescued from the brink of death. Bound to protect a young lord who is the descendant of an ancient bloodline, you become the target of many vicious enemies, including the dangerous Ashina clan. When the young lord is captured, nothing will stop you on a perilous quest to regain your honor, not even death itself.  Explore late 1500s Sengoku Japan, a brutal period of constant life and death conflict, as you come face to face with larger than life foes in a dark and twisted world. Unleash an arsenal of deadly prosthetic tools and powerful ninja abilities while you blend stealth, vertical traversal, and visceral head to head combat in a bloody confrontation. ",
-      "consoles" : [ "PS4", "XBOX ONE", "PC" ],
-      "image" : "https://s.s-bol.com/imgbase0/imagebase3/large/FC/5/8/6/9/9200000095169685.jpg",
-      "link" : "/sekiro_shadows_die_twice",
-      "price" : 59.99,
-      "title" : "Sekrio: Shadows Die Twice"
-    },
-    "Cathrine Full Body" : {
-      "body" : "Seize your innermost cravings with the Catherine: Full Body Heart's Desire Premium Edition • A Full-Bodied Remaster: The captivating tale of 2011’s award-winning Catherine returns in Catherine: Full Body - bigger and better than before. Improved visuals and gameplay, brand-new music, enhanced multiplayer options, and much more await in this enticing new package. • From a Love Triangle to a Love Square: Explore brand-new branching story paths centering around the arrival of the mysterious amnesiac, Rin. Dozens of new cutscenes and animated cinematics have been added to delve even deeper into Vincent’s complicated present life, as well as his past. Housed in a Collector's Box reminiscent of the looming tower from Vincent's nightmares, the Heart's Desire Premium Edition includes: • Sheep Plush: Be a part of the herd with a fluffy Sheep Plush, complete with Vincent's pink polka dot boxers! (Approximately 5” in length) • Soundtrack CD: The perfect pairing for a full-bodied bottle of wine – this CD contains a compilation of musical tracks from Catherine: Full Body. • Hardcover Art Book: Lead Designer Shigenori Soejima’s tantalizing illustrations fill this gorgeous hardcover art book. • Metal Case: Protect your deepest, darkest secrets in this metal game case featuring Rin, Catherine, and Katherine.",
-      "consoles" : [ "PS4", "XBOX ONE", "PC" ],
-      "image" : "https://cdn.game.net/image/upload/c_fill,dpr_2.0,f_auto,h_437,q_auto/v1/game_img/ml2/7/4/2/8/742844_ps4_a.png",
-      "link" : "/cathrine_full_body",
-      "price" : 69.99,
-      "title" : "Cathrine Full Body"
-    },
-    "RAGE 2" : {
-      "body": "Remember the post-apocalyptic world that was left behind when the destructive asteroid came crashing into the Earth in RAGE? RAGE 2 is set decades after where mankind is on its last legs and the earth is even more unforgiving than before. You will follow the story of Walker, the last ranger of the Vineland as he attempts to survive in the dangerous world that he was born into. His ultimate mission? To take down the tyrannical Authority. This open-world offers insane action featuring a wide range of weapons, interesting powers and dangerous mutants to fight. The open-world in RAGE 2 is incredibly diverse and you will battle enemies in a range of conditions including open deserts to over-grown and mysterious forests. The remaining lives have learnt to survive in this challenging world, and now it’s Walker’s turn. RAGE 2 has various scenarios for you to take part in other than shooting bandits offering incredibly interesting and diverse gameplay. ",
-      "consoles" : [ "PS4", "XBOX ONE", "PC" ],
-      "image" : "https://images-na.ssl-images-amazon.com/images/I/91P33qRxoeL._AC_SL1500_.jpg",
-      "link" : "/rage2",
-      "price" : 69.99,
-      "title" : "Rage 2"
-    }
+    "Games": {
+        "Borderlands 3": {
+            "body": "Pre-order bonus: Gold weapon skins & trinket.  Super Deluxe includes the Season Pass, Deluxe bonus content and steelbook!",
+            "consoles": ["PS4", "XBOX ONE", "PC"],
+            "image": "https://s.s-bol.com/imgbase0/imagebase3/large/FC/4/4/7/4/9200000108974744.jpg",
+            "price": 89.99,
+            "title": "Borderlands 3",
+            "link": "borderlands3"
+        },
+        "Devil May Cry 5": {
+            "body": "Complete with its signature blend of stylized action and otherworldly characters, Devil May Cry 5 brings more over-the-top action. The demon hunter, Nero, returns with a thirst for vengeance and determination stop the demonic invasion that has taken over Red Grave City. Nero must head to the city to destroy the hellish demons with his weapons craftswoman and new partner-in-crime, Nico.   Prepare for an intense mix of high-energy action with high-octane stylized action and an abundance of demon slaying. It’s frantic, fast and lots of fun. With new ground-breaking graphics and a legendary battle of good and evil, Devil May Cry 5 will provide utterly insane action.",
+            "consoles": ["PS4", "XBOX ONE", "PC"],
+            "image": "https://s.s-bol.com/imgbase0/imagebase3/large/FC/9/2/2/1/9200000095301229.jpg",
+            "link": "devil_may_cry5",
+            "price": 59.99,
+            "title": "Devil May Cry 5"
+        },
+        "Sekiro: Shadows Die Twice": {
+            "body": "Carve your own clever path to vengeance in an all-new adventure from developer FromSoftware, creators of Bloodborne and the Dark Souls series.  In Sekiro: Shadows Die Twice you are the “one-armed wolf”, a disgraced and disfigured warrior rescued from the brink of death. Bound to protect a young lord who is the descendant of an ancient bloodline, you become the target of many vicious enemies, including the dangerous Ashina clan. When the young lord is captured, nothing will stop you on a perilous quest to regain your honor, not even death itself.  Explore late 1500s Sengoku Japan, a brutal period of constant life and death conflict, as you come face to face with larger than life foes in a dark and twisted world. Unleash an arsenal of deadly prosthetic tools and powerful ninja abilities while you blend stealth, vertical traversal, and visceral head to head combat in a bloody confrontation. ",
+            "consoles": ["PS4", "XBOX ONE", "PC"],
+            "image": "https://s.s-bol.com/imgbase0/imagebase3/large/FC/5/8/6/9/9200000095169685.jpg",
+            "link": "sekiro_shadows_die_twice",
+            "price": 59.99,
+            "title": "Sekiro: Shadows Die Twice"
+        },
+        "Cathrine Full Body": {
+            "body": "Seize your innermost cravings with the Catherine: Full Body Heart's Desire Premium Edition • A Full-Bodied Remaster: The captivating tale of 2011’s award-winning Catherine returns in Catherine: Full Body - bigger and better than before. Improved visuals and gameplay, brand-new music, enhanced multiplayer options, and much more await in this enticing new package. • From a Love Triangle to a Love Square: Explore brand-new branching story paths centering around the arrival of the mysterious amnesiac, Rin. Dozens of new cutscenes and animated cinematics have been added to delve even deeper into Vincent’s complicated present life, as well as his past. Housed in a Collector's Box reminiscent of the looming tower from Vincent's nightmares, the Heart's Desire Premium Edition includes: • Sheep Plush: Be a part of the herd with a fluffy Sheep Plush, complete with Vincent's pink polka dot boxers! (Approximately 5” in length) • Soundtrack CD: The perfect pairing for a full-bodied bottle of wine – this CD contains a compilation of musical tracks from Catherine: Full Body. • Hardcover Art Book: Lead Designer Shigenori Soejima’s tantalizing illustrations fill this gorgeous hardcover art book. • Metal Case: Protect your deepest, darkest secrets in this metal game case featuring Rin, Catherine, and Katherine.",
+            "consoles": ["PS4", "XBOX ONE", "PC"],
+            "image": "https://cdn.game.net/image/upload/c_fill,dpr_2.0,f_auto,h_437,q_auto/v1/game_img/ml2/7/4/2/8/742844_ps4_a.png",
+            "link": "cathrine_full_body",
+            "price": 69.99,
+            "title": "Cathrine Full Body"
+        },
+        "RAGE 2": {
+            "body": "Remember the post-apocalyptic world that was left behind when the destructive asteroid came crashing into the Earth in RAGE? RAGE 2 is set decades after where mankind is on its last legs and the earth is even more unforgiving than before. You will follow the story of Walker, the last ranger of the Vineland as he attempts to survive in the dangerous world that he was born into. His ultimate mission? To take down the tyrannical Authority. This open-world offers insane action featuring a wide range of weapons, interesting powers and dangerous mutants to fight. The open-world in RAGE 2 is incredibly diverse and you will battle enemies in a range of conditions including open deserts to over-grown and mysterious forests. The remaining lives have learnt to survive in this challenging world, and now it’s Walker’s turn. RAGE 2 has various scenarios for you to take part in other than shooting bandits offering incredibly interesting and diverse gameplay. ",
+            "consoles": ["PS4", "XBOX ONE", "PC"],
+            "image": "https://images-na.ssl-images-amazon.com/images/I/91P33qRxoeL._AC_SL1500_.jpg",
+            "link": "rage2",
+            "price": 69.99,
+            "title": "Rage 2"
+        },
+        "SUPER SMASH BROS ULTIMATE": {
+            "body": "",
+            "consoles": ["SWITCH"],
+            "image": "https://images-na.ssl-images-amazon.com/images/I/81bH3%2BDbvNL._AC_SL1500_.jpg",
+            "price": 49.99,
+            "title": "SUPER SMASH BROS. ULTIMATE",
+            "link": "super_smash_ultimate"
+        }
 
-  }
+    }
 }
