@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import stylingTheme from './assets/stylingTheme';
 import FrontPage from './containers/FrontPage/FrontPage';
 import Header from './components/Header/Header';
-import { BrowserRouter, Route, Redirect } from "react-router-dom"
+import { BrowserRouter, Route } from "react-router-dom"
 
 const App: React.FC = () => {
   const App = styled.div`

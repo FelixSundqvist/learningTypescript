@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardWrapper from '../../../CardWrapper/CardWrapper';
+import CardWrapper from '../../../Cards/Cards';
 import Spinner from '../../../UI/Spinner/Spinner';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';

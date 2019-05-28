@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { withTheme } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Badge from '../../UI/Badge/Badge';
-import ProductInfo from '../../FrontPage/ProductInfo/ProductInfo'
 
 export interface CardInterface{
     theme?: {[key:string]: any},

@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import Gallery from '../AutoPlayGallery/Gallery';
 import Products from '../../components/FrontPage/Products/Products';
 import Categories from '../../components/FrontPage/Categories/Categories';
-import axios from '../../axios-games';
-import * as actionTypes from '../../store/actions/actionTypes';
+//import axios from '../../axios-games';
 import * as actions from '../../store/actions/actions';
 import jsonGames from '../../assets/fakewebpage-b18d3-export.json';
 
