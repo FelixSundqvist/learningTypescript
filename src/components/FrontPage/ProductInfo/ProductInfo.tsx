@@ -3,15 +3,14 @@ import styled, { withTheme } from 'styled-components';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import Badge from '../../UI/Badge/Badge';
 import CancelButton from '../../UI/Buttons/CancelButton/CancelButton';
-import CartButton from '../../UI/Buttons/CartButton/CartButton';
 import { connect } from 'react-redux';
+import ProductOptions from '../../UI/ProductOptions/ProductOptions'
 interface ProductInterface{
     theme?: {
         [key:string] : any
     },
     [key:string] : any
 }
-
 
 const productInfo:React.FC<ProductInterface> = (props) => {
     const { match } = props;
@@ -84,8 +83,6 @@ const productInfo:React.FC<ProductInterface> = (props) => {
         props.history.push("/");
     }
 
-    
-
     const badges = product.consoles 
     ? product.consoles.map((current:any) => <Badge text={current} key={current} />)
     : null;
@@ -103,7 +100,7 @@ const productInfo:React.FC<ProductInterface> = (props) => {
                     <h2>{match.params.title}</h2>
                     {badges}
                     <p>{product.body}</p>
-                    <CartButton />
+                    <ProductOptions options={product.consoles} />
                 </TextDiv>
             </ProductInfo>
         </>

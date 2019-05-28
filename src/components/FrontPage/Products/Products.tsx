@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
-import shortid from 'shortid';
 import styled, { withTheme } from 'styled-components';
 import Segment from './Segments/Segment';
-
+import VideoSegment from './Segments/VideoSegment'
 interface ProductsInterface {
     theme?: Object,
 }
@@ -22,12 +21,16 @@ const products:React.FC<ProductsInterface> = (props) => {
         height: 100%;
         margin: 0 auto;
     `
+    
     return (
         <ProductsPage>
             <Wrapper>
 
-                <Segment />
+                <Segment title="Hottest Hits">
 
+                </Segment>
+                <VideoSegment src="https://www.youtube.com/embed/nmZdyeCRgus" title="Check out the latest hit from Capcom" />
+                
             </Wrapper>
         </ProductsPage>
     )

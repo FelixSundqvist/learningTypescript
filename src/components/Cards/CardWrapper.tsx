@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
+import { Route } from 'react-router-dom';
+import ProductInfo from '../FrontPage/ProductInfo/ProductInfo';
 import createCards from '../../utility/createCards';
 
 interface CardWrapperInterface {
@@ -30,6 +32,7 @@ const CardWrapper:React.FC<CardWrapperInterface> = props => {
     return (
         <CardContainer>
             {games}
+        <Route path="/products/title=:title" exact component={ProductInfo}/>
         </CardContainer>
     )
 }
