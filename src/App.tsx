@@ -5,6 +5,7 @@ import stylingTheme from './assets/stylingTheme';
 import FrontPage from './containers/FrontPage/FrontPage';
 import Header from './components/Header/Header';
 import { BrowserRouter, Route } from "react-router-dom"
+import Footer from './components/Footer/Footer';
 
 const App: React.FC = () => {
   const App = styled.div`
@@ -18,12 +19,12 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ThemeProvider theme = {stylingTheme} >
-        
         <App>
           <Header /> 
           <Route path="/" component={FrontPage} />
-        </App>
 
+          <Footer />
+        </App>
       </ThemeProvider>
     </BrowserRouter>
   );

@@ -25,7 +25,7 @@ const frontPage: React.FC<frontPageProps> = (props) => {
     `
     const ContentWrapper = styled.div`
         background-color: ${props => props.theme.white};
-        box-shadow: 1vh 2vh 3vh #000;
+        
         background-color: inherit;
         grid-row: 2;
         grid-column: 1 / span 6;
