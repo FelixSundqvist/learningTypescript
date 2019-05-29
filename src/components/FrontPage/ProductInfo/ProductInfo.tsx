@@ -107,7 +107,10 @@ const productInfo:React.FC<ProductInterface> = (props) => {
                     <h2>{match.params.title}</h2>
                     {badges}
                     <p>{product.body}</p>
-                    <ProductOptions big options={product.consoles} onChange={(e: any) => onChange(e)} value={props.selectedConsole}  /> 
+                    <ProductOptions big 
+                        options={product.consoles} 
+                        onChange={(e: any) => onChange(e)} 
+                        value={match.params.console}  /> 
                 </TextDiv>
             </ProductInfo>
         </>
