@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react'
 import styled, { withTheme } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Badge from '../../UI/Badge/Badge';
 import ProductOptions from '../../UI/ProductOptions/ProductOptions';
+import withSelectedConsole from '../../../utility/withSelectedConsole';
 export interface CardInterface{
     theme?: {[key:string]: any},
     title: string,
@@ -12,9 +14,12 @@ export interface CardInterface{
     image?: string,
     width?: string,
     height?: string,
-    consoles: Array<string>
+    consoles: Array<string>,
+    selectedConsole: "string",
+    changeConsole: Function
 }
 const card:React.FC<CardInterface> = props => {
+
 
     const Card = styled.div`
         position: relative;
@@ -42,7 +47,7 @@ const card:React.FC<CardInterface> = props => {
             position: absolute;
             top: 0;
             left: 0;
-            height: 60%;
+            height: 100%;
             width: 100%;
             display: block;
         }
@@ -66,25 +71,29 @@ const card:React.FC<CardInterface> = props => {
     ? props.consoles.map(current => <Badge key={current} text={current} />)
     : null;
 
+  
     return (
-        <>
+        
         <Card>
             
             <ImageDiv>
-            <Link to={""+props.link} className="link" />
+            <Link to={""+props.link+"/console="+props.selectedConsole} className="link" />
                 <img src={props.image ? props.image : ""} alt={props.title}/>
             </ImageDiv>
             <TextDiv>
                 {badges}
                 <h4>{props.title}</h4>
                 <b>{props.price}€</b>
-                <ProductOptions options={props.consoles} />
+                <ProductOptions 
+                    onChange={(event:any) => props.changeConsole(event)}
+                    options={props.consoles} 
+                    value={props.selectedConsole} />
             </TextDiv>
             
         </Card>
          
-        </>
+        
     )
 }
 
-export default withTheme(card);
+export default withTheme(withSelectedConsole( card ));

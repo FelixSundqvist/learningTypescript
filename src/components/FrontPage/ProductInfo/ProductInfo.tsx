@@ -5,6 +5,7 @@ import Badge from '../../UI/Badge/Badge';
 import CancelButton from '../../UI/Buttons/CancelButton/CancelButton';
 import { connect } from 'react-redux';
 import ProductOptions from '../../UI/ProductOptions/ProductOptions'
+import withSelectedConsole from '../../../utility/withSelectedConsole';
 interface ProductInterface{
     theme?: {
         [key:string] : any
@@ -25,7 +26,7 @@ const productInfo:React.FC<ProductInterface> = (props) => {
         flex: 1;
         height: 90vh;
         width: 90vw;
-        z-index: 999;
+        z-index: 9999;
         background-color: white;
         border: 2px solid black;
         margin: 2rem;
@@ -83,6 +84,12 @@ const productInfo:React.FC<ProductInterface> = (props) => {
         props.history.push("/");
     }
 
+    const onChange = (event: any) => {
+        props.changeConsole(event);
+        props.history.replace(`/products/title=${match.params.title}/console=${event.target.value}`)
+    } 
+    console.log(props)
+
     const badges = product.consoles 
     ? product.consoles.map((current:any) => <Badge text={current} key={current} />)
     : null;
@@ -100,7 +107,7 @@ const productInfo:React.FC<ProductInterface> = (props) => {
                     <h2>{match.params.title}</h2>
                     {badges}
                     <p>{product.body}</p>
-                    <ProductOptions options={product.consoles} />
+                    <ProductOptions big options={product.consoles} onChange={(e: any) => onChange(e)} value={props.selectedConsole}  /> 
                 </TextDiv>
             </ProductInfo>
         </>
@@ -111,4 +118,4 @@ const mapStateToProps = (state:any, ownProps:any) => {
         gamesFromState: state.games
     }
 }
-export default connect(mapStateToProps)(withTheme(productInfo));
+export default connect(mapStateToProps)(withTheme(withSelectedConsole(productInfo)));

@@ -5,7 +5,10 @@ import Spinner from '../Spinner/Spinner'
 interface ProductOptionsInterface {
     theme?: Object,
     title?: string,
-    options?: Array<string>
+    options?: Array<string>,
+    big?: boolean|undefined,
+    onChange?: any,
+    value?: string
 }
 const ProductOptions: React.FC<ProductOptionsInterface> = (props) => {
 
@@ -14,14 +17,22 @@ const ProductOptions: React.FC<ProductOptionsInterface> = (props) => {
     if(props.options){
         selectOptions = props.options.map(cur => <option value={cur} label={cur}>{cur}</option>)
     }
+
+    const Wrapper = styled.div`
+        margin: 16px;
+        z-index: 9998;
+        height: 50%;
+        position: relative;
+    `
   
     return (
-        <form style={{margin: "16px"}}>
+        <Wrapper>
+        <form>
             <label>Avaible options: </label>
-            <select name="Consoles">{selectOptions} </select>
-            <CartButton />
+            <select name="Consoles" value = {props.value} onChange={props.onChange}>{selectOptions}</select>
+            <CartButton big={props.big}/>
         </form>
-        
+        </Wrapper>
     )
 }
 

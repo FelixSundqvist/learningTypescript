@@ -1,27 +1,52 @@
 import React from 'react'
 import styled, {withTheme} from 'styled-components';
-
+import cartIcon from '../../../../assets/icons/shopping-cart-solid.svg'
 interface CartInterface{
     onClick?: any,
-    theme?: any
+    theme?: any,
+    big?: boolean | undefined
 }
 const cartButton: React.FC<CartInterface> = props => {
-    const Cart = styled.div`
+    const CartBig = styled.div`
         border: .3vh solid black;
         width: 50%;
         margin: 1vh auto;
-        z-index: 999;
+        z-index: 99;
         text-align:center;
         background-color: ${props.theme ? props.theme.buttonGreen: "white"}
         &:hover{
             cursor: pointer;
-            background-color: white;
+            background-color: ${props.theme ? props.theme.mainColor: "white"};
         }
     `
+    const CartSmall = styled.div`
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        margin: 1vh auto;
+        z-index: 999;
+        text-align:center;
+        background-color: ${props.theme ? props.theme.buttonGreen: "white"};
+        background-image: url(${cartIcon});
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: 50%;
+        &:hover{
+            cursor: pointer;
+            background-color: ${props.theme ? props.theme.mainColor: "white"};
+        }
+    `
+    const cartBtn = props.big ? <CartBig onClick={props.onClick}>Add To Cart</CartBig> 
+    : <CartSmall onClick={props.onClick}></CartSmall>
     return(
-    <Cart onClick={props.onClick}> 
-        <p>Add To Cart</p>
-    </Cart>
+        <>
+            {cartBtn}
+        </>
     )
 }
 

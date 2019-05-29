@@ -32,7 +32,7 @@ const CardWrapper:React.FC<CardWrapperInterface> = props => {
     return (
         <CardContainer>
             {games}
-        <Route path="/products/title=:title" exact component={ProductInfo}/>
+        <Route path="/products/title=:title/console=:console" exact component={ProductInfo}/>
         </CardContainer>
     )
 }
