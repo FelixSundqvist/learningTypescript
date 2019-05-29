@@ -7,18 +7,20 @@ interface CartInterface{
 }
 const cartButton: React.FC<CartInterface> = props => {
     const Cart = styled.div`
-        border: .5vh solid black;
+        border: .3vh solid black;
         width: 50%;
         margin: 1vh auto;
+        z-index: 999;
+        text-align:center;
         background-color: ${props.theme ? props.theme.buttonGreen: "white"}
         &:hover{
             cursor: pointer;
-            transform: scale(1.01)
+            background-color: white;
         }
     `
     return(
     <Cart onClick={props.onClick}> 
-        <h4>Add To Cart</h4>
+        <p>Add To Cart</p>
     </Cart>
     )
 }

@@ -16,7 +16,7 @@ const ProductOptions: React.FC<ProductOptionsInterface> = (props) => {
     }
   
     return (
-        <form>
+        <form style={{margin: "16px"}}>
             <label>Avaible options: </label>
             <select name="Consoles">{selectOptions} </select>
             <CartButton />
