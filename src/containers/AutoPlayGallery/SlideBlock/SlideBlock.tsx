@@ -16,6 +16,11 @@ const slide: React.FC<BlockProps> = (props) => {
         font-size: 1.5rem;
         background-size: cover;
         background-repeat: none;
+        h1{
+            color: white;
+            height: 40%;
+            background-color: rgba( 0, 0, 0, 0.4);
+        }
     `
     return <SlideBlock style={{...props.style, backgroundColor: props.backgroundColor}}>{props.children}</SlideBlock>
 }

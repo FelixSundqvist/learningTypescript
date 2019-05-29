@@ -21,11 +21,14 @@ const menu: React.FC<MenuProps> = (props) => {
         delay: boolean
     }
     const Menu = styled.div`
-        height: 8vh;
+        height: 100vh;
+        width: 70%;
         position: absolute;
-        top: -50%;
+        top: 0;
         right: 0;
-        transform: translate(50%, 50%);
+        left: 0;
+        bottom: 0;
+        background-color: black;
         overflow: hidden;
         z-index: 9999;
         border: .4vh solid ${props => props.theme.mainColor};
@@ -35,16 +38,15 @@ const menu: React.FC<MenuProps> = (props) => {
     `
     const MenuWrapper = styled.div`
         position: relative;
-        height: 10vh;
         width: 100%;
     `
     const Wrapper = styled.div `
         position: fixed;
-        z-index: 999;
+        z-index: 9999;
         top: 0;
         right: 0;
-        margin-top: 1vh;
-        width: 100%;
+        left: 0;
+        width: 30vw;
         @media (max-width: 992px){
             margin: 0;
         }
@@ -76,7 +78,7 @@ const menu: React.FC<MenuProps> = (props) => {
     
     return(
         <Wrapper>
-            <MenuToggle toggleMenu = { toggle } 
+         <MenuToggle toggleMenu = { toggle } 
                 animationDelay = { toggleMenu.delay }/>
             <MenuWrapper>
                 <Menu>

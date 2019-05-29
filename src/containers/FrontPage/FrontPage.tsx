@@ -10,9 +10,7 @@ import Aside from '../../components/FrontPage/Aside/Aside';
 import * as actions from '../../store/actions/actions';
 import jsonGames from '../../assets/fakewebpage-b18d3-export.json';
 import ProductInfo from '../../components/FrontPage/ProductInfo/ProductInfo';
-
-
-
+import bgImage from '../../assets/images/mateusz-turbinski-1630732-unsplash.jpg';
 interface frontPageProps {
     theme?: Object,
     addGamesToState: any
@@ -32,6 +30,12 @@ const frontPage: React.FC<frontPageProps> = (props) => {
         @media(max-width: 992px) {
             flex: 1;
         }
+    `
+    const GalleryBg = styled.div`
+        height: 100%;
+        width: 100%;
+        background-image: url(${bgImage});
+        background-color: ${props => props.theme.black};
     `
     const { Games } = jsonGames;
     props.addGamesToState(Games);
@@ -59,7 +63,10 @@ const frontPage: React.FC<frontPageProps> = (props) => {
     /* <Products fetchedProducts={fetchedProducts} /> */
     return (
         <>
-        <Gallery />
+        <GalleryBg>
+            <Gallery />
+        </GalleryBg>
+        
         <FrontPage>
             
             <ContentWrapper>                

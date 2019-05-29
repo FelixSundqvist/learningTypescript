@@ -6,7 +6,7 @@ import slideContent from './slideContent';
 import Slide, { createSlideBlocks } from './Slide/Slide';
 import GalleryDots from './GalleryDots/GalleryDots';
 interface GalleryProps {
-    theme?: Object,
+    theme?: {[key:string] : any},
     height?: string,
     width?: string,
 } 
@@ -14,7 +14,8 @@ interface GalleryProps {
 const gallery:React.FC<GalleryProps> = (props) => {
     const [currentSlide, changeSlide] = useState(0);
     const slideTime = 4000;
-    let galleryTimer:any;
+    let galleryTimer: any;
+
     function timed() {
             currentSlide <= slideContent.length - 2
             ? changeSlide(slide => slide + 1) 
@@ -28,12 +29,13 @@ const gallery:React.FC<GalleryProps> = (props) => {
         }
     })
 
-
     const Gallery = styled.div`
         position: relative;
         margin: 0 auto; 
+        border: .5em solid black;
         height: ${props.height ? props.height: "50vh" };
-        width: ${props.width ? props.width: "100vw" };
+        width: ${props.width ? props.width: "80vw" };
+        background-color: white;
         @media(max-width: 992px) {
             display: none;
         }

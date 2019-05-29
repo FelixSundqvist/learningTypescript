@@ -14,7 +14,6 @@ const aside:React.FC<AsideInterface> = props =>{
             display: none;
         }
     `
-
     return(
         <Aside>
             <SearchBar />

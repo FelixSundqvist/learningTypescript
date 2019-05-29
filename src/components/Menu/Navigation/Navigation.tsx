@@ -17,22 +17,22 @@ const navigation: React.FC<NavProps> = (props) => {
         position: relative;
         width: 100%;
         height: 100%;
-        display: flex;
         ul {
             margin: 0;
             padding: 0;
             flex: 1;
             display: flex;
-            flex-direction: ${props.menu ? "row" : "column"};
-            text-align: ${props.menu ? "center" : "left"};
+            flex-direction: ${props.menu ? "column" : "row"};
+            text-align: ${props.menu ? "left" : "center"};
             list-style-type: none;
             li{
                 z-index: 9999;
                 height: ${props.menu ? "100%" : "3rem"};
-                padding: ${props.menu ? "1vw" : "1rem"};;
-                font-size: .7em;
-                padding: .7em;
-                color: ${props => props.theme.white};
+                padding: ${props.menu ? "1em" : "2em"};;
+                font-size: ${props.menu ? "1.2em" : ".7em"};
+                padding: ${props.menu ? "1.2em" : ".7em"};
+                flex: 1;
+                color: ${props.menu && props.theme ? "white" : "black"};
                 /* border-right: .2rem solid ${props => props.theme.black}; */
                 transition: background-color 300ms ease;
 
@@ -47,29 +47,22 @@ const navigation: React.FC<NavProps> = (props) => {
             }
         }
     `;
-    const NavBackground = styled.div`
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: ${props => props.theme.black};
-    `
 
     const NavIconWrapper = styled.div`
-        flex: 1;
-        padding: 1vh;
-        z-index: 9999;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-50%, -50%);
     `
     let navigationType  = null;
 
-    if(props.menu){
+/*     if(props.menu){
         navigationType = <>
             <NavIconWrapper>
                 <NavArrow toggleMenu = {props.toggleMenu} />
             </NavIconWrapper>
         </>
-    }
+    }{navigationType} */
 
         return (
             <Nav  > 
@@ -81,9 +74,9 @@ const navigation: React.FC<NavProps> = (props) => {
                     {props.menu ? <li><b>CART</b></li> : null}
                 </ul>
                 
-                {navigationType}
                 
-                <NavBackground style={props.style} />
+                
+                {/* <NavBackground style={props.style} /> */}
             </Nav>)
     
 }
