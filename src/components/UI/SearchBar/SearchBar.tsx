@@ -1,19 +1,14 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import Button from '../../../UI/Buttons/Button';
+import Button from '../Buttons/Button';
 interface searchProps {
     theme?: Object
 }
 
 const searchBar: React.FC<searchProps> = (props) => {
-
-    const theme = props.theme;
-
     const SearchBarWrapper = styled.div`
         position: relative;
-        width: 50%;
-        height: 100%;
-        float: right;
+        width: 100%;
         margin-right: ${props => props.theme.margin};
     `
     const SearchBar = styled.input`
@@ -22,7 +17,7 @@ const searchBar: React.FC<searchProps> = (props) => {
         border: 2px solid white;
         overflow: none;
         background-color: transparent;
-        font-size: 2vh;
+        font-size: .7em;
         &:active {
             border-color: ${props => props.theme.mainColor}
         }
@@ -47,5 +42,4 @@ const searchBar: React.FC<searchProps> = (props) => {
         </SearchBarWrapper>
     )
 }
-
 export default withTheme(searchBar);

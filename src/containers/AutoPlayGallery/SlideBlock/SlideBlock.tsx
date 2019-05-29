@@ -11,7 +11,6 @@ interface BlockProps {
 }
 
 const slide: React.FC<BlockProps> = (props) => {
-    const bgColor:String = props.backgroundColor ? props.backgroundColor : "";
     const SlideBlock = styled.div`
         flex: 1;
         font-size: 1.5rem;

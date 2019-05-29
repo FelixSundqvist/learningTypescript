@@ -1,28 +1,26 @@
 import React from 'react'
 import styled, { withTheme } from 'styled-components';
-import Navigation from '../../Header/Navigation/Navigation';
+import Navigation from '../../Menu/Navigation/Navigation';
+import SearchBar from '../../UI/SearchBar/SearchBar';
 
-interface CategoriesInterface {
+interface AsideInterface {
     theme?: any
 }
-const categories:React.FC<CategoriesInterface> = props =>{
+const aside:React.FC<AsideInterface> = props =>{
     
-    const Categories = styled.aside`
-        flex: 1;
-        padding: 2vh;
+    const Aside = styled.aside`
+        flex: 2;
         @media all and (max-width: 992px){
             display: none;
         }
     `
 
     return(
-        <Categories>
-            <Navigation style={{
-                backgroundColor: props.theme.secondaryColor
-                 ? props.theme.secondaryColor 
-                 : null}}/>
-        </Categories>
+        <Aside>
+            <SearchBar />
+            <Navigation />
+        </Aside>
     )
 }
 
-export default withTheme(categories);
+export default withTheme(aside);

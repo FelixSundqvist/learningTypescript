@@ -19,9 +19,10 @@ const ProductOptions: React.FC<ProductOptionsInterface> = (props) => {
     }
 
     const Wrapper = styled.div`
+        position: relative;
         margin: 16px;
         z-index: 9998;
-        height: 50%;
+        height: 40%;
         position: relative;
     `
   

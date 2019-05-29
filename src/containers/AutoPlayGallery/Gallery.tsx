@@ -31,13 +31,12 @@ const gallery:React.FC<GalleryProps> = (props) => {
 
     const Gallery = styled.div`
         position: relative;
-        margin: 0 auto;
-        
-        grid-row: 1;
-        grid-column: 1 / span 6;
-
-        height: ${props.height ? props.height: "100%" };
-        width: ${props.height ? props.height: "100%" };;
+        margin: 0 auto; 
+        height: ${props.height ? props.height: "50vh" };
+        width: ${props.width ? props.width: "100vw" };
+        @media(max-width: 992px) {
+            display: none;
+        }
     `
     //Wrapper for slides
     const Wrapper = styled.div`

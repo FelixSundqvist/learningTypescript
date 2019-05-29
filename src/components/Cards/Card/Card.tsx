@@ -4,7 +4,7 @@ import styled, { withTheme } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Badge from '../../UI/Badge/Badge';
 import ProductOptions from '../../UI/ProductOptions/ProductOptions';
-import withSelectedConsole from '../../../utility/withSelectedConsole';
+import withSelectedConsole from '../../../hoc/withSelectedConsole';
 export interface CardInterface{
     theme?: {[key:string]: any},
     title: string,
@@ -19,8 +19,6 @@ export interface CardInterface{
     changeConsole: Function
 }
 const card:React.FC<CardInterface> = props => {
-
-
     const Card = styled.div`
         position: relative;
         width: ${props.width ? props.width : "400px"};
@@ -34,9 +32,9 @@ const card:React.FC<CardInterface> = props => {
             transform: scale(1.01)
         }
 
-        @media all and (max-width: 922px){
-            width: 200px;
-            height: 350px;
+        @media (max-width: 922px){
+            flex: 1;
+            margin: 2vw;
         }
     `
     const ImageDiv = styled.div`
@@ -63,7 +61,10 @@ const card:React.FC<CardInterface> = props => {
         background-color: ${props.theme ? props.theme.secondaryAccent : "#ccc"};
         h4{
             width: 100%;
-            font-size: 1vw;
+            font-size: 1em;
+        }
+        b{
+            font-size: .8em;
         }
     `
     //badges for each consoles listed
@@ -73,9 +74,7 @@ const card:React.FC<CardInterface> = props => {
 
   
     return (
-        
         <Card>
-            
             <ImageDiv>
             <Link to={""+props.link+"/console="+props.selectedConsole} className="link" />
                 <img src={props.image ? props.image : ""} alt={props.title}/>
@@ -91,7 +90,6 @@ const card:React.FC<CardInterface> = props => {
             </TextDiv>
             
         </Card>
-         
         
     )
 }

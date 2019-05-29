@@ -5,7 +5,7 @@ import Badge from '../../UI/Badge/Badge';
 import CancelButton from '../../UI/Buttons/CancelButton/CancelButton';
 import { connect } from 'react-redux';
 import ProductOptions from '../../UI/ProductOptions/ProductOptions'
-import withSelectedConsole from '../../../utility/withSelectedConsole';
+import withSelectedConsole from '../../../hoc/withSelectedConsole';
 interface ProductInterface{
     theme?: {
         [key:string] : any
@@ -35,7 +35,7 @@ const productInfo:React.FC<ProductInterface> = (props) => {
         flex-direction: row;
         flex-wrap: wrap;
 
-        @media all and (max-width: 992px) {
+        @media (max-width: 992px) {
             flex-direction: column;
             left: 0;
             right: 0;
@@ -52,6 +52,7 @@ const productInfo:React.FC<ProductInterface> = (props) => {
         padding: 1vh;
         flex: 2;
         overflow: hidden;
+
         img{
             margin: 0 auto;
             display: block;
@@ -60,9 +61,10 @@ const productInfo:React.FC<ProductInterface> = (props) => {
         }
         @media all and (max-width: 992px) {
             padding: 0;
-            flex: 4;
+            flex: 2;
             img{
-                width: auto;
+                margin: 0;
+                width: 100%;
                 height: 100%;
             }
         }
@@ -78,6 +80,10 @@ const productInfo:React.FC<ProductInterface> = (props) => {
         flex: 4;
         p{
             text-align: left;
+        }
+        @media all and (max-width: 992px) {
+            padding: 1em;
+            flex: 1;
         }
     `
     const backdropClick = () => {

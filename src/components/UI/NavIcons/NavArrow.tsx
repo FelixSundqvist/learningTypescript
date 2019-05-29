@@ -4,7 +4,7 @@ import icon from '../../../assets/icons/arrow-right-solid.svg';
 
 interface navArrow {
     theme?: Object,
-    toggleHeader: Function
+    toggleMenu: Function
 }
 
 const navArrow: React.FC<navArrow> = (props:any) => {
@@ -25,7 +25,7 @@ const navArrow: React.FC<navArrow> = (props:any) => {
         }
     `
 
-    return <NavArrow onClick = {props.toggleHeader}   >
+    return <NavArrow onClick = {props.toggleMenu}   >
         <img src={icon} alt ="arrow" />
      </NavArrow>
 }

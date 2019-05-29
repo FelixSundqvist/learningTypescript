@@ -1,14 +1,14 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import NavArrow from '../../UI/NavIcons/NavArrow';
-import SearchBar from './SearchBar/SearchBar';
+import SearchBar from '../../UI/SearchBar/SearchBar';
 
 interface NavProps{
     listItems? : Array<any>
     theme?: {[key: string]: any;},
-    toggleHeader?: any,
-    showHeader?: boolean,
-    header?: boolean,
+    toggleMenu?: any,
+    showMenu?: boolean,
+    menu?: boolean,
     style?: {[key: string]: any;},
 } 
 const navigation: React.FC<NavProps> = (props) => {
@@ -23,23 +23,24 @@ const navigation: React.FC<NavProps> = (props) => {
             padding: 0;
             flex: 1;
             display: flex;
-            flex-direction: ${props.header ? "row" : "column"};
-            text-align: ${props.header ? "center" : "left"};
+            flex-direction: ${props.menu ? "row" : "column"};
+            text-align: ${props.menu ? "center" : "left"};
             list-style-type: none;
             li{
-                z-index: 99999;
-                height: ${props.header ? "100%" : "3rem"};
-                padding: ${props.header ? "1vw" : "1rem"};;
-                font-size: 2vh;
+                z-index: 9999;
+                height: ${props.menu ? "100%" : "3rem"};
+                padding: ${props.menu ? "1vw" : "1rem"};;
+                font-size: .7em;
+                padding: .7em;
                 color: ${props => props.theme.white};
                 /* border-right: .2rem solid ${props => props.theme.black}; */
                 transition: background-color 300ms ease;
 
                 &:hover{
-                    ${props.showHeader && props.theme 
+                    ${props.showMenu && props.theme 
                         ? "cursor: pointer; background-color:"+props.theme.mainAccent
                         : null}
-                    ${!props.header && props.theme  
+                    ${!props.menu && props.theme  
                         ? "cursor: pointer; background-color:"+props.theme.mainAccent
                         : null }
                 }
@@ -62,11 +63,10 @@ const navigation: React.FC<NavProps> = (props) => {
     `
     let navigationType  = null;
 
-    if(props.header){
+    if(props.menu){
         navigationType = <>
             <NavIconWrapper>
-                <NavArrow toggleHeader = {props.toggleHeader} />
-                <SearchBar />
+                <NavArrow toggleMenu = {props.toggleMenu} />
             </NavIconWrapper>
         </>
     }
@@ -78,7 +78,7 @@ const navigation: React.FC<NavProps> = (props) => {
                     <li>Xbox One</li>
                     <li>PC</li>
                     <li>Nintendo</li>
-                    {props.header ? <li><b>CART</b></li> : null}
+                    {props.menu ? <li><b>CART</b></li> : null}
                 </ul>
                 
                 {navigationType}

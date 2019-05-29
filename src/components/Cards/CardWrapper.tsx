@@ -23,16 +23,16 @@ const CardWrapper:React.FC<CardWrapperInterface> = props => {
         min-height: ${props.height ? props.height : "500px"};
         background-color: ${bgColor};
         display: flex;
-        justify-content: center;
-        align-items: space-between;
+        justify-content: space-around;
+        align-items: center;
         flex-wrap: wrap;
+        padding: 1.5em;
     ` 
     const games = props.gamesFromState ? createCards(props.gamesFromState) : null;
     
     return (
         <CardContainer>
             {games}
-        <Route path="/products/title=:title/console=:console" exact component={ProductInfo}/>
         </CardContainer>
     )
 }

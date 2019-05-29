@@ -20,14 +20,12 @@ const cartButton: React.FC<CartInterface> = props => {
         }
     `
     const CartSmall = styled.div`
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%);
+  
+
         border-radius: 50%;
-        width: 70px;
-        height: 70px;
-        margin: 1vh auto;
+        width: 5em;
+        height: 5em;
+        margin: 1em auto;
         z-index: 999;
         text-align:center;
         background-color: ${props.theme ? props.theme.buttonGreen: "white"};

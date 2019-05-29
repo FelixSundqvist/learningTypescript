@@ -3,13 +3,12 @@ import styled, { withTheme } from 'styled-components';
 
 interface iconProps {
     animationDelay?: boolean,
-    toggleHeader: Function,
+    toggleMenu: Function,
     theme: Object,
 }
 
-const headerToggle: React.FC<iconProps> = (props:any) => {
-    const theme = props.theme; 
-    const HeaderIcon = styled.div`
+const menuToggle: React.FC<iconProps> = (props:any) => {
+    const MenuIcon = styled.div`
         position: fixed;
         z-index: 999;
         top: 0;
@@ -25,7 +24,6 @@ const headerToggle: React.FC<iconProps> = (props:any) => {
         &:hover {
             cursor: pointer;   
             opacity: 1;
-
         }
         span {
             position: absolute;
@@ -46,11 +44,11 @@ const headerToggle: React.FC<iconProps> = (props:any) => {
             }
         }
     `
-    return <HeaderIcon onClick = {props.toggleHeader}> 
+    return <MenuIcon onClick = {props.toggleMenu}> 
         <span />
         <span />
         <span />
-        </HeaderIcon>
+        </MenuIcon>
 }
 
-export default withTheme(headerToggle);
+export default withTheme(menuToggle);

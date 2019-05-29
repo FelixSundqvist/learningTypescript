@@ -1,4 +1,4 @@
-export const headerAnimation = `
+export const menuAnimation = `
 @keyframes expand {
     from {
         width: 0%;
