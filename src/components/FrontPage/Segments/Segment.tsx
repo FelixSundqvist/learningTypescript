@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardWrapper from '../../Cards/CardWrapper';
+
 
 interface SegmentInterface {
     theme?: Object,
@@ -8,12 +8,14 @@ interface SegmentInterface {
 }
 const segment: React.FC<SegmentInterface> = (props) => {
     const Segment = styled.div`
-    
+        h2{
+            font-size: 3em;
+        }
     `
     return (
         <Segment>
-            {/* <h1>{props.title}</h1> */}
-            <CardWrapper />
+            <h2>{props.title}</h2>
+            {props.children}
             
         </Segment>
     )
