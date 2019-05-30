@@ -13,7 +13,8 @@ import ProductInfo from '../../components/FrontPage/ProductInfo/ProductInfo';
 import bgImage from '../../assets/images/mateusz-turbinski-1630732-unsplash.jpg';
 interface frontPageProps {
     theme?: Object,
-    addGamesToState: any
+    addGamesToState: any,
+    gamesFromState: any
 }
 
 const frontPage: React.FC<frontPageProps> = (props) => {
@@ -61,6 +62,10 @@ const frontPage: React.FC<frontPageProps> = (props) => {
     }, [fetchedProducts]) */
     
     /* <Products fetchedProducts={fetchedProducts} /> */
+    
+
+
+ 
     return (
         <>
         <GalleryBg>
@@ -72,7 +77,6 @@ const frontPage: React.FC<frontPageProps> = (props) => {
             <ContentWrapper>                
                 <Products />
             </ContentWrapper>
-            <Route path="/products/title=:title" exact component={ProductInfo}/>
 
         </FrontPage> 
         </>

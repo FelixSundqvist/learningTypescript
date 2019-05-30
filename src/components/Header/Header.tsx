@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Navigation from '../Menu/Navigation/Navigation';
+import { Link } from 'react-router-dom';
 
 const header: React.FC = (props: any) => {
     const Header = styled.header`
@@ -10,7 +11,10 @@ const header: React.FC = (props: any) => {
     `
     return(
         <Header>
-            <h1>GAMESTORE</h1>
+            <Link to="/" >
+                <h1>GAMESTORE</h1>  
+            </Link>
+            
             <Navigation />
             
             

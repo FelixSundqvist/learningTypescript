@@ -30,13 +30,14 @@ const ProductOptions: React.FC<ProductOptionsInterface> = (props) => {
         <Wrapper>
         <form>
             <label>Avaible options: </label>
-            <select name="Consoles" value = {props.value} onChange={props.onChange}>{selectOptions}</select>
+            <select name="consoles" 
+                value = {props.value} 
+                onChange={props.onChange}>
+                {selectOptions}</select>
             <CartButton big={props.big}/>
         </form>
         </Wrapper>
     )
 }
-
-
 
 export default ProductOptions;

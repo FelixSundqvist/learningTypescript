@@ -15,8 +15,8 @@ interface ProductInterface{
 
 const productInfo:React.FC<ProductInterface> = (props) => {
     const { match } = props;
-
-    const product  = props.gamesFromState[match.params.title]
+    console.log(props)
+    const product  = props.gamesFromState[match.params[0]]
     
     const ProductInfo = styled.div`
         position: fixed;
@@ -92,13 +92,13 @@ const productInfo:React.FC<ProductInterface> = (props) => {
 
     const onChange = (event: any) => {
         props.changeConsole(event);
-        props.history.replace(`/products/title=${match.params.title}/console=${event.target.value}`)
+        props.history.replace(`/products/title=${product.title}/console=${event.target.value}`)
     } 
-    console.log(props)
-
     const badges = product.consoles 
     ? product.consoles.map((current:any) => <Badge text={current} key={current} />)
     : null;
+
+    console.log(props)
    
     return (
         <>
@@ -116,7 +116,7 @@ const productInfo:React.FC<ProductInterface> = (props) => {
                     <ProductOptions big 
                         options={product.consoles} 
                         onChange={(e: any) => onChange(e)} 
-                        value={match.params.console}  /> 
+                        value={match.params[1]}  /> 
                 </TextDiv>
             </ProductInfo>
         </>
