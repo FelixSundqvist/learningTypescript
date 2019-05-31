@@ -1,10 +1,12 @@
 import React from 'react'
-import styled from 'styled-components';
-import creditCardIcon from '../../../assets/icons/credit-card-solid.svg';
-import truckIcon from '../../../assets/icons/truck-solid.svg';
-import checkIcon from '../../../assets/icons/check-solid.svg';
+import styled, { withTheme } from 'styled-components';
+import creditCard from '../../../assets/icons/credit-card-solid.svg';
+import truck from '../../../assets/icons/truck-solid.svg';
+import check from '../../../assets/icons/check-solid.svg';
+
 interface infoCircleInterface{
-    [key:string] : any
+    [key:string] : any,
+    theme? : any
 }
 const infoCircle: React.FC<infoCircleInterface> = (props) => {
     
@@ -14,6 +16,7 @@ const infoCircle: React.FC<infoCircleInterface> = (props) => {
         justify-content: center;
         align-content: center;
         padding: 1vh;
+        background-color: #eee;
     `
     const Circle = styled.div`
         border-radius: 50%;
@@ -24,11 +27,12 @@ const infoCircle: React.FC<infoCircleInterface> = (props) => {
         background-color: blueviolet;
 
         div{
-            background-size: contain;
-            border: 2px solid black;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
             width: 100%;
             height: 100%;
-           
+            color: ${props.theme ? props.theme.black : "black"}
         }
         @media (max-width: 992px) {
             height: 200px;
@@ -38,15 +42,26 @@ const infoCircle: React.FC<infoCircleInterface> = (props) => {
 
         console.log(props)
         const circles = [
-            {color: "blue", icon:{creditCardIcon}}, 
-            {color: "purple", icon:{truckIcon}}, 
-            {color: "orange", icon:{checkIcon}} ].map(
+                {
+                    color: props.theme.mainColor, 
+                    icon: creditCard,
+                    text: "Good Payment Options"
+                }, 
+                {
+                    color: props.theme.mainAccent,
+                    icon: truck,
+                    text: "Fast Delivery"
+                }, 
+                {
+                    color: props.theme.mainColor, 
+                    icon: check,
+                    text: "Recive Product"
+                } ].map(
             current => {
 
                 return <Circle style={{backgroundColor: current.color}}>
-                            <div style={{backgroundImage: `url(${current.icon})` }}>
-                                
-                            </div>
+                            <div style={{backgroundImage: `url(${current.icon})`}}></div>
+                            <div><p>{current.text}</p></div>
                         </Circle>
             }
         )
@@ -58,4 +73,4 @@ return (
     )
 }
 
-export default infoCircle;
+export default withTheme(infoCircle);

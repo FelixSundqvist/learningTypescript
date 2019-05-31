@@ -22,6 +22,25 @@ export const menuAnimation = `
 }
 `
 
+export const cartAnimation = `
+    @keyframes expandDown {
+        from{
+            height: 0;
+        }
+        to {
+            height: 50%;
+        }
+    }
+    @keyframes hide {
+        from{
+            height: 50%;
+        }
+        to {
+            height: 0;
+        }
+    }
+`   
+
 export const galleryAnimation = `
 @keyframes moveLeft {
     from{

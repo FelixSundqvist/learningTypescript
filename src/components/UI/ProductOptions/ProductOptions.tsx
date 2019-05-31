@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CartButton from '../Buttons/CartButton/CartButton';
+import CartButton from '../Buttons/AddToCartButton/CartButton';
 import Spinner from '../Spinner/Spinner'
 interface ProductOptionsInterface {
     theme?: Object,
