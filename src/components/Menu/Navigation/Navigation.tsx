@@ -1,8 +1,5 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import NavArrow from '../../UI/NavIcons/NavArrow';
-import SearchBar from '../../UI/SearchBar/SearchBar';
-
 interface NavProps{
     listItems? : Array<any>
     theme?: {[key: string]: any;},
@@ -48,21 +45,6 @@ const navigation: React.FC<NavProps> = (props) => {
         }
     `;
 
-    const NavIconWrapper = styled.div`
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-50%, -50%);
-    `
-    let navigationType  = null;
-
-/*     if(props.menu){
-        navigationType = <>
-            <NavIconWrapper>
-                <NavArrow toggleMenu = {props.toggleMenu} />
-            </NavIconWrapper>
-        </>
-    }{navigationType} */
 
         return (
             <Nav  > 
@@ -73,10 +55,6 @@ const navigation: React.FC<NavProps> = (props) => {
                     <li>Nintendo</li>
                     {props.menu ? <li><b>CART</b></li> : null}
                 </ul>
-                
-                
-                
-                {/* <NavBackground style={props.style} /> */}
             </Nav>)
     
 }

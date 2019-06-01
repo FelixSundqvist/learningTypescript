@@ -20,8 +20,6 @@ const cartButton: React.FC<CartInterface> = props => {
         }
     `
     const CartSmall = styled.div`
-  
-
         border-radius: 50%;
         width: 5em;
         height: 5em;

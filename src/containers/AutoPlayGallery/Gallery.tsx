@@ -76,9 +76,9 @@ const gallery:React.FC<GalleryProps> = (props) => {
     })
     const dots = slideContent.map((item, id) => {
         if(currentSlide === id){
-            return <GalleryDots onClick={() => changeCurrentSlide(id)} current />
+            return <GalleryDots key={id} onClick={() => changeCurrentSlide(id)} current />
         }else{
-            return <GalleryDots onClick={() => changeCurrentSlide(id)}/>
+            return <GalleryDots key={id} onClick={() => changeCurrentSlide(id)}/>
         }
     })
 

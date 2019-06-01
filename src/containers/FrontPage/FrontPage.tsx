@@ -1,22 +1,24 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { withTheme } from 'styled-components'; 
 import { connect } from 'react-redux';
-import { Route } from 'react-router';
 import Gallery from '../AutoPlayGallery/Gallery';
 import Products from '../../components/FrontPage/Products';
-import Aside from '../../components/FrontPage/Aside/Aside';
-//import axios from '../../axios-games';
+import { Route } from 'react-router-dom'; 
+
+/* import axios from '../../axios-games'; */
 import * as actions from '../../store/actions/actions';
 import jsonGames from '../../assets/fakewebpage-b18d3-export.json';
-import ProductInfo from '../../components/FrontPage/ProductInfo/ProductInfo';
 import bgImage from '../../assets/images/mateusz-turbinski-1630732-unsplash.jpg';
+import ProductInfo from '../../components/FrontPage/ProductInfo/ProductInfo';
+import CartMessage from '../../components/UI/CartMessage/CartMessage'; 
 interface frontPageProps {
     theme?: Object,
     addGamesToState: any,
-    gamesFromState: any
+    gamesFromState: any,
+    showAddedToCart: boolean
 }
-
+const { Games } = jsonGames;
 const frontPage: React.FC<frontPageProps> = (props) => {
     const FrontPage = styled.div`
         background-color: ${props => props.theme.black};
@@ -38,9 +40,64 @@ const frontPage: React.FC<frontPageProps> = (props) => {
         background-image: url(${bgImage});
         background-color: ${props => props.theme.black};
     `
-    const { Games } = jsonGames;
-    props.addGamesToState(Games);
+        
+    const gamesRegex = (gameObj: any) => {
+        let route: any;
+        let routes: Array<any> = []
 
+        for(let game in gameObj){
+            route = `/products/:tile=(${game})/:console=(${gameObj[game].consoles.join("|")})`;
+            routes.push(route)
+        }
+        return routes
+    }
+
+    useEffect(() => {
+        props.addGamesToState(Games);
+
+    }, [])
+
+    //create exact paths for games
+    let gameRoutes, exactRoutes:any;
+
+    if(props.gamesFromState){
+        let gamesCopy:any = {...props.gamesFromState};
+        gameRoutes = gamesRegex(gamesCopy);
+        exactRoutes = gameRoutes.map((route:string) => <Route path={route} component={ProductInfo} />)
+    }
+    
+    return (
+        <>
+        {exactRoutes}
+        <GalleryBg>
+            <Gallery />
+        </GalleryBg> 
+        
+        <FrontPage>
+            
+            <ContentWrapper>                
+                <Products />
+            </ContentWrapper>
+
+        </FrontPage> 
+        <CartMessage show={props.showAddedToCart} />
+        </>
+    )
+}
+
+const mapStateToProps = (state: any) => {
+    return {
+        gamesFromState: state.games,
+        showAddedToCart: state.showAddedToCart
+    }
+};
+const mapDispatchToProps = (dispatch:Function, ownProps:any) => {
+    return {
+       addGamesToState: (allGames:any) => dispatch(actions.getGames(allGames))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withTheme(frontPage));
 /*     useEffect(() =>
     {
         axios.get("/Games.json")
@@ -63,34 +120,3 @@ const frontPage: React.FC<frontPageProps> = (props) => {
     
     /* <Products fetchedProducts={fetchedProducts} /> */
     
-
-
- 
-    return (
-        <>
-        <GalleryBg>
-            <Gallery />
-        </GalleryBg>
-        
-        <FrontPage>
-            
-            <ContentWrapper>                
-                <Products />
-            </ContentWrapper>
-
-        </FrontPage> 
-        </>
-    )
-}
-const mapStateToProps = (state:any, ownProps:any) => {
-    return {
-        gamesFromState: state.games
-    }
-}
-const mapDispatchToProps = (dispatch:Function, ownProps:any) => {
-    return {
-       addGamesToState: (allGames:{[key:string]:any}) => dispatch(actions.getGames(allGames))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(withTheme(frontPage));

@@ -1,8 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
-import { Route } from 'react-router-dom';
-import ProductInfo from '../FrontPage/ProductInfo/ProductInfo';
 import createCards from '../../utility/createCards';
 
 interface CardWrapperInterface {
@@ -19,6 +17,7 @@ const CardWrapper:React.FC<CardWrapperInterface> = props => {
     const bgColor:string|null = props.backgroundColor? props.backgroundColor : null;
 
     const CardContainer = styled.div`
+
         width: ${props.width ? props.width : "100%"};
         min-height: ${props.height ? props.height : "500px"};
         background-color: ${bgColor};
@@ -27,6 +26,7 @@ const CardWrapper:React.FC<CardWrapperInterface> = props => {
         align-items: center;
         flex-wrap: wrap;
         padding: 1.5em;
+        
     ` 
     const games = props.gamesFromState ? createCards(props.gamesFromState) : null;
     
@@ -36,7 +36,7 @@ const CardWrapper:React.FC<CardWrapperInterface> = props => {
         </CardContainer>
     )
 }
-const mapStateToProps = (state:any, ownProps:any) => {
+const mapStateToProps = (state:any) => {
     return {
         gamesFromState: state.games
     }

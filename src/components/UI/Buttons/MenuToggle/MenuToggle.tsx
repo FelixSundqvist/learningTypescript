@@ -9,15 +9,14 @@ interface iconProps {
 
 const menuToggle: React.FC<iconProps> = (props:any) => {
     const MenuIcon = styled.div`
-        position: fixed;
+        position: relative;
+        float: right;
         z-index: 999;
-        top: 0;
-        right: 0;
-        margin: .5vw;
         padding: 3vh;
         border-radius: 50%;
         background-color: ${props => props.theme.black};
-       
+        height: 3vh;
+        width: 3vh;
         opacity: 0.5;
         display: ${props.animationDelay ? "none" : "block"};
         transition: opacity 200ms ease;

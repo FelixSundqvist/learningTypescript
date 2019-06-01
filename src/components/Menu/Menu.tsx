@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
 import styled, { withTheme } from 'styled-components';
+import { connect } from 'react-redux';
 import Navigation from './Navigation/Navigation';
 import MenuToggle from '../UI/Buttons/MenuToggle/MenuToggle';
 import { menuAnimation, cartAnimation } from '../../assets/animations';
@@ -29,8 +30,8 @@ const menu: React.FC<MenuProps> = (props) => {
     }
 
     const Menu = styled.div`
-        height: 100vh;
-        width: 70%;
+        height: 50vh;
+        width: 100%;
         position: absolute;
         top: 0;
         right: 0;
@@ -46,31 +47,29 @@ const menu: React.FC<MenuProps> = (props) => {
     `
 
     const Cart = styled.div`
-        height: 100%;
+        height: 50vh;
         width: 100%;
         position: absolute;
         top: 0;
         right: 0;
-        color: white;
+        left: 0;
+        bottom: 0;
         background-color: black;
         overflow: hidden;
         z-index: 9999;
+        color: white; 
         border: .4vh solid ${props => props.theme.mainColor};
-        animation: ${toggleCart.show ? "expandDown 300ms forwards" : "hide 400ms" };
+        animation: ${toggleCart.show ? "expand 300ms forwards" : "shrink 400ms" };
         display: ${toggleCart.delay ? "block" : "none"};
         ${ cartAnimation }
         `
-    const MenuWrapper = styled.div`
-        position: relative;
-        width: 100%;
-    `
+
     const Wrapper = styled.div `
         position: fixed;
         z-index: 9999;
         top: 0;
         right: 0;
-        left: 0;
-        width: 30vw;
+        width: 50vw;
         @media (max-width: 992px){
             margin: 0;
         }
@@ -103,33 +102,40 @@ const menu: React.FC<MenuProps> = (props) => {
     
     return(
         <Wrapper>
-            <CartToggle toggleCart = { cartToggle } 
-                animationDelay={toggleCart.delay}>
-                
+            <CartToggle 
+                toggleCart = { cartToggle } 
+                animationDelay= { toggleCart.delay }
+                show={ toggleCart.show }
+                >
+            </CartToggle>
+            
                 <Cart> 
                     <p>In Cart:</p>
-                     
+                        
                 </Cart>
-                 
-            </CartToggle>
+            
+ 
             <Backdrop onClick = {cartToggle} show = { toggleCart.show } />  
             
             
             <MenuToggle toggleMenu = { menuToggle } 
                 animationDelay = { toggleMenu.delay }/>
-
-            <MenuWrapper>
                 <Menu>
                     <Navigation 
                         menu
                         showMenu = { toggleMenu.show } 
                         toggleMenu = { menuToggle } />
                 </Menu>
-            </MenuWrapper>
 
             <Backdrop onClick = {menuToggle} show = { toggleMenu.show } />
         </Wrapper>
     )   
+}
+
+const mapStateToProps = state => {
+    return {
+        cart: state.cart
+    }
 }
 
 export default withTheme(menu);

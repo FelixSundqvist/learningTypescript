@@ -5,6 +5,7 @@ import Segment from './Segments/Segment';
 import VideoSegment from './Segments/VideoSegment';
 import CardWrapper from '../Cards/CardWrapper';
 import InfoCircle from '../UI/InfoCircle/InfoCircle';
+import withAddToCart from '../../hoc/withAddToCart';
 interface ProductsInterface {
     theme?: Object,
 }
@@ -43,4 +44,4 @@ const products:React.FC<ProductsInterface> = (props) => {
 
 
 
-export default withTheme(products);
+export default withTheme(withAddToCart(products));

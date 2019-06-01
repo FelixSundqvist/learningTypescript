@@ -39,8 +39,6 @@ const infoCircle: React.FC<infoCircleInterface> = (props) => {
             width: 200px;
         }
     `
-
-        console.log(props)
         const circles = [
                 {
                     color: props.theme.mainColor, 
@@ -59,7 +57,7 @@ const infoCircle: React.FC<infoCircleInterface> = (props) => {
                 } ].map(
             current => {
 
-                return <Circle style={{backgroundColor: current.color}}>
+                return <Circle key={current.text}  style={{backgroundColor: current.color}}>
                             <div style={{backgroundImage: `url(${current.icon})`}}></div>
                             <div><p>{current.text}</p></div>
                         </Circle>

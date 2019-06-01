@@ -84,6 +84,7 @@ const card:React.FC<CardInterface> = props => {
                 <h4>{props.title}</h4>
                 <b>{props.price}€</b>
                 <ProductOptions 
+                    title={props.title}
                     onChange={(event:any) => props.changeConsole(event)}
                     options={props.consoles} 
                     value={props.selectedConsole} />

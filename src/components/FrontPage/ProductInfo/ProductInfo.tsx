@@ -15,7 +15,6 @@ interface ProductInterface{
 
 const productInfo:React.FC<ProductInterface> = (props) => {
     const { match } = props;
-    console.log(props)
     const product  = props.gamesFromState[match.params[0]]
     
     const ProductInfo = styled.div`
@@ -97,8 +96,6 @@ const productInfo:React.FC<ProductInterface> = (props) => {
     const badges = product.consoles 
     ? product.consoles.map((current:any) => <Badge text={current} key={current} />)
     : null;
-
-    console.log(props)
    
     return (
         <>

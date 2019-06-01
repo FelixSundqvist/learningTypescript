@@ -12,8 +12,8 @@ const videoSegment = (props:any) => {
     return(
         <VideoSegment>
             <h2>{props.title}</h2>
-            <iframe id="video" title="YouTube" width="720" height="405"
-            src={props.src}></iframe>
+{/*             <iframe id="video" title="YouTube" width="720" height="405"
+            src={props.src}></iframe> */}
         </VideoSegment>
     )
 }
