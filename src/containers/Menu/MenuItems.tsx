@@ -2,14 +2,16 @@
 import React, { useState } from 'react';
 import styled, { withTheme } from 'styled-components';
 import { connect } from 'react-redux';
-import Navigation from './Navigation/Navigation';
-import MenuToggle from '../UI/Buttons/MenuToggle/MenuToggle';
-import { menuAnimation, cartAnimation } from '../../assets/animations';
-import Backdrop from '../UI/Backdrop/Backdrop';
-import CartToggle from '../UI/Buttons/CartToggle/CartToggle';
+import Navigation from '../../components/Navigation/Navigation';
+import MenuToggle from '../../components/UI/Buttons/MenuToggle/MenuToggle';
+import Menu from './Menu';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import CartToggle from '../../components/UI/Buttons/CartToggle/CartToggle';
+import Cart from '../../components/CartItems/Cart';
 
 interface MenuProps{
-    theme?: Object
+    theme?: Object,
+    cart: Array<Object>
     /* dynamic keys = [key: string]: any; */
 }
 
@@ -22,54 +24,19 @@ const menu: React.FC<MenuProps> = (props) => {
     const [toggleCart, setCartToggle] = useState({
         show: false,
         delay: false
-    })
+    });
 
     interface StateInterface{
         show: boolean,
         delay: boolean
     }
 
-    const Menu = styled.div`
-        height: 50vh;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: black;
-        overflow: hidden;
-        z-index: 9999;
-        border: .4vh solid ${props => props.theme.mainColor};
-        animation: ${toggleMenu.show ? "expand 300ms forwards" : "shrink 400ms" };
-        display: ${toggleMenu.delay ? "block" : "none"};
-        ${ menuAnimation }
-    `
-
-    const Cart = styled.div`
-        height: 50vh;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: black;
-        overflow: hidden;
-        z-index: 9999;
-        color: white; 
-        border: .4vh solid ${props => props.theme.mainColor};
-        animation: ${toggleCart.show ? "expand 300ms forwards" : "shrink 400ms" };
-        display: ${toggleCart.delay ? "block" : "none"};
-        ${ cartAnimation }
-        `
-
     const Wrapper = styled.div `
         position: fixed;
         z-index: 9999;
         top: 0;
         right: 0;
-        width: 50vw;
+        width: 100vw;
         @media (max-width: 992px){
             margin: 0;
         }
@@ -104,23 +71,23 @@ const menu: React.FC<MenuProps> = (props) => {
         <Wrapper>
             <CartToggle 
                 toggleCart = { cartToggle } 
-                animationDelay= { toggleCart.delay }
-                show={ toggleCart.show }
+                animationDelay= { toggleCart.delay || toggleMenu.delay  }
+                show = { toggleCart.show }
                 >
             </CartToggle>
             
-                <Cart> 
-                    <p>In Cart:</p>
-                        
-                </Cart>
+                <Cart 
+                    toggleCart={toggleCart}
+                    cart={props.cart} /> 
             
  
             <Backdrop onClick = {cartToggle} show = { toggleCart.show } />  
-            
-            
+             
             <MenuToggle toggleMenu = { menuToggle } 
-                animationDelay = { toggleMenu.delay }/>
-                <Menu>
+                animationDelay = { toggleMenu.delay || toggleCart.delay }/>
+                <Menu 
+                    toggleMenu={toggleMenu}
+                >
                     <Navigation 
                         menu
                         showMenu = { toggleMenu.show } 
@@ -132,10 +99,10 @@ const menu: React.FC<MenuProps> = (props) => {
     )   
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: any) => {
     return {
         cart: state.cart
     }
 }
 
-export default withTheme(menu);
+export default connect(mapStateToProps)(withTheme(menu));

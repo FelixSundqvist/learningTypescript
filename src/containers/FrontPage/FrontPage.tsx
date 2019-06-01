@@ -63,7 +63,7 @@ const frontPage: React.FC<frontPageProps> = (props) => {
     if(props.gamesFromState){
         let gamesCopy:any = {...props.gamesFromState};
         gameRoutes = gamesRegex(gamesCopy);
-        exactRoutes = gameRoutes.map((route:string) => <Route path={route} component={ProductInfo} />)
+        exactRoutes = gameRoutes.map((route:string) => <Route key={route} path={route} component={ProductInfo} />)
     }
     
     return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
-import createCards from '../../utility/createCards';
+import createCards from '../../../utility/createCards';
 
 interface CardWrapperInterface {
     theme?: Object,

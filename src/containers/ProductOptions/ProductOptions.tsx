@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import CartButton from '../Buttons/AddToCartButton/CartButton';
-import Spinner from '../Spinner/Spinner';
-import * as actions from '../../../store/actions/actions';
+import CartButton from '../../components/UI/Buttons/AddToCartButton/CartButton';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import * as actions from '../../store/actions/actions';
 interface ProductOptionsInterface {
     theme?: Object,
     title?: string,
@@ -19,9 +19,8 @@ const ProductOptions: React.FC<ProductOptionsInterface> = (props) => {
     let selectOptions:any = <Spinner />;
 
     if(props.options){
-        selectOptions = props.options.map(cur => <option value={cur} label={cur}>{cur}</option>)
+        selectOptions = props.options.map(cur => <option key={cur} value={cur} label={cur}>{cur}</option>)
     }
-
     const Wrapper = styled.div`
         position: relative;
         margin: 16px;
@@ -31,7 +30,6 @@ const ProductOptions: React.FC<ProductOptionsInterface> = (props) => {
     `
     const clickAdd = (event:Event) => {
         event.preventDefault();
-        
         props.showAdded();
         props.addToCart({
             title: props.title,
@@ -51,8 +49,7 @@ const ProductOptions: React.FC<ProductOptionsInterface> = (props) => {
                 big={ props.big } 
                 onClick={(event:Event) => clickAdd(event)}
                 />
-        </form>
-        
+        </form>  
         </Wrapper>
     )
 }

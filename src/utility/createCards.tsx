@@ -1,6 +1,6 @@
 import React from 'react';
 import shortid from 'shortid';
-import Card, { CardInterface } from '../components/Cards/Card/Card';
+import Card, { CardInterface } from '../components/FrontPage/Cards/Card/Card';
 
 const createCards = (products:{[key:string] : any}) => {
     return Object.keys(products).map(current => {

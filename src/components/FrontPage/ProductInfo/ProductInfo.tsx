@@ -4,7 +4,7 @@ import Backdrop from '../../UI/Backdrop/Backdrop';
 import Badge from '../../UI/Badge/Badge';
 import CancelButton from '../../UI/Buttons/CancelButton/CancelButton';
 import { connect } from 'react-redux';
-import ProductOptions from '../../UI/ProductOptions/ProductOptions'
+import ProductOptions from '../../../containers/ProductOptions/ProductOptions'
 import withSelectedConsole from '../../../hoc/withSelectedConsole';
 interface ProductInterface{
     theme?: {
@@ -111,6 +111,7 @@ const productInfo:React.FC<ProductInterface> = (props) => {
                     {badges}
                     <p>{product.body}</p>
                     <ProductOptions big 
+                        title={product.title}
                         options={product.consoles} 
                         onChange={(e: any) => onChange(e)} 
                         value={match.params[1]}  /> 

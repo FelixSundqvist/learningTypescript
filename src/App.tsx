@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import stylingTheme from './assets/stylingTheme';
 import FrontPage from './containers/FrontPage/FrontPage';
-import Menu from './components/Menu/Menu';
+import Menu from './containers/Menu/MenuItems';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import Navigation from '../Menu/Navigation/Navigation';
+import Navigation from '../Navigation/Navigation';
 import { Link } from 'react-router-dom';
 
 const header: React.FC = (props: any) => {

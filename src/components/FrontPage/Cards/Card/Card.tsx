@@ -2,9 +2,9 @@
 import React from 'react'
 import styled, { withTheme } from 'styled-components';
 import { Link } from 'react-router-dom';
-import Badge from '../../UI/Badge/Badge';
-import ProductOptions from '../../UI/ProductOptions/ProductOptions';
-import withSelectedConsole from '../../../hoc/withSelectedConsole';
+import Badge from '../../../UI/Badge/Badge';
+import ProductOptions from '../../../../containers/ProductOptions/ProductOptions';
+import withSelectedConsole from '../../../../hoc/withSelectedConsole';
 export interface CardInterface{
     theme?: {[key:string]: any},
     title: string,

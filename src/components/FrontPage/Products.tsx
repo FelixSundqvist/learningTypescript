@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import Segment from './Segments/Segment';
 import VideoSegment from './Segments/VideoSegment';
-import CardWrapper from '../Cards/CardWrapper';
+import CardWrapper from './Cards/CardWrapper';
 import InfoCircle from '../UI/InfoCircle/InfoCircle';
 import withAddToCart from '../../hoc/withAddToCart';
 interface ProductsInterface {
