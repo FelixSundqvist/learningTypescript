@@ -24,7 +24,7 @@ const App: React.FC<AppInterface> = (props) => {
     overflow: hidden;
   `
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/gameWebsite/">
       <ThemeProvider theme = {stylingTheme} >
       
         <App>

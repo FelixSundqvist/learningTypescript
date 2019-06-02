@@ -6,7 +6,7 @@ import Gallery from '../AutoPlayGallery/Gallery';
 import Products from '../../components/FrontPage/Products';
 import { Route } from 'react-router-dom'; 
 
-/* import axios from '../../axios-games'; */
+import axios from '../../axios-games'; 
 import * as actions from '../../store/actions/actions';
 import jsonGames from '../../assets/fakewebpage-b18d3-export.json';
 import bgImage from '../../assets/images/mateusz-turbinski-1630732-unsplash.jpg';
@@ -18,7 +18,7 @@ interface frontPageProps {
     gamesFromState: any,
     showAddedToCart: boolean
 }
-const { Games } = jsonGames;
+
 const frontPage: React.FC<frontPageProps> = (props) => {
     const FrontPage = styled.div`
         background-color: ${props => props.theme.black};
@@ -53,11 +53,9 @@ const frontPage: React.FC<frontPageProps> = (props) => {
     }
 
     useEffect(() => {
-        props.addGamesToState(Games);
-
+        props.addGamesToState(axios);
     }, [])
 
-    //create exact paths for games
     let gameRoutes, exactRoutes:any;
 
     if(props.gamesFromState){
@@ -98,25 +96,4 @@ const mapDispatchToProps = (dispatch:Function, ownProps:any) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withTheme(frontPage));
-/*     useEffect(() =>
-    {
-        axios.get("/Games.json")
-        .then(res => {
-            setProducts(res.data)
-        })
-        .catch(error => console.log(error))
 
-        return () => {
-        setProducts({})
-        }
-    }, []) */
-
-    /*
-     useEffect(() => {
-        const { Games } = jsonGames
-        setProducts(Games)
-
-    }, [fetchedProducts]) */
-    
-    /* <Products fetchedProducts={fetchedProducts} /> */
-    

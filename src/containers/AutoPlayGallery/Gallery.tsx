@@ -27,7 +27,7 @@ const gallery:React.FC<GalleryProps> = (props) => {
         return () => {
             clearTimeout(galleryTimer);
         }
-    })
+    }, [galleryTimer])
 
     const Gallery = styled.div`
         position: relative;
@@ -81,7 +81,6 @@ const gallery:React.FC<GalleryProps> = (props) => {
             return <GalleryDots key={id} onClick={() => changeCurrentSlide(id)}/>
         }
     })
-
 
     return (
         <Gallery>

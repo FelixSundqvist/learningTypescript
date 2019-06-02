@@ -45,7 +45,6 @@ const navigation: React.FC<NavProps> = (props) => {
         }
     `;
 
-
         return (
             <Nav  > 
                 <ul>
