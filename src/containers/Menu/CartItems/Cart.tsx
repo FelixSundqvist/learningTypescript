@@ -1,15 +1,14 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-
-import { cartAnimation } from '../../assets/animations';
-
-
+import { cartAnimation } from '../../../assets/animations';
+import Button from '../../../components/UI/Buttons/Button';
 interface CartInterface {
     theme?: any,
     toggleCart: {
         [key:string] : any
     },
-    cart?: Array<any>
+    cart?: Array<any>,
+    onChange?: any,
 }
 const cart:React.FC<CartInterface> = props => {
     const Cart = styled.div`
@@ -22,7 +21,6 @@ const cart:React.FC<CartInterface> = props => {
     background-color: white;
     overflow: hidden;
     z-index: 9999;
-    
     border: .4vh solid ${props => props.theme.mainColor};
     animation: ${props.toggleCart.show ? "expand 300ms forwards" : "shrink 400ms" };
     display: ${props.toggleCart.delay ? "block" : "none"};
@@ -30,9 +28,9 @@ const cart:React.FC<CartInterface> = props => {
 
     ul{
         list-style-type: none;
+        padding: 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         text-align: left;
         li{
             position: relative;
@@ -57,7 +55,7 @@ const cart:React.FC<CartInterface> = props => {
     return <li>{current.title}, {current.console}
          <Form>
             <label>amount: </label>
-            <input type="number" value={current.amount} />
+            <input type="number" value={current.amount} onChange={props.onChange} />
          </Form>
     </li>}) 
     :<p>"No Items Currently here"</p>; 
@@ -68,6 +66,16 @@ const cart:React.FC<CartInterface> = props => {
             <ul>
                 {cartList}
             </ul>
+            <Button style={
+            {
+                position: "absolute", 
+                bottom: "0",
+                backgroundColor: props.theme.mainColor,
+                padding: "16px",
+                left: "50%",
+                transform: "translate(-50%, -50%)"
+            }
+            }>Go to Checkout</Button>
         </Cart>
     )
 }

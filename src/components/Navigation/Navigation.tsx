@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/actions';
 interface NavProps{
     listItems? : Array<any>
     theme?: {[key: string]: any;},
@@ -7,6 +9,8 @@ interface NavProps{
     showMenu?: boolean,
     menu?: boolean,
     style?: {[key: string]: any;},
+    categorizeGamesinState: any,
+    gamesFromState: any,
 } 
 const navigation: React.FC<NavProps> = (props) => {
 
@@ -30,7 +34,6 @@ const navigation: React.FC<NavProps> = (props) => {
                 padding: ${props.menu ? "1.2em" : ".7em"};
                 flex: 1;
                 color: ${props.menu && props.theme ? "white" : "black"};
-                /* border-right: .2rem solid ${props => props.theme.black}; */
                 transition: background-color 300ms ease;
 
                 &:hover{
@@ -45,17 +48,31 @@ const navigation: React.FC<NavProps> = (props) => {
         }
     `;
 
+    
+        const categorize = (category: string) => props.categorizeGamesinState(props.gamesFromState, category)
+        
         return (
-            <Nav  > 
+            <Nav> 
                 <ul>
-                    <li>Playstation 4</li>
-                    <li>Xbox One</li>
-                    <li>PC</li>
-                    <li>Nintendo</li>
-                    {props.menu ? <li><b>CART</b></li> : null}
+                    {["PS4", "Xbox One", "PC", "Switch"].map(
+                        current => <li key={current} 
+                        onClick={() => categorize(current)}>{current}
+                        </li>)}
                 </ul>
             </Nav>)
     
 }
 
-export default withTheme(navigation);
+
+const mapStateToProps = (state: any) => {
+    return {
+        gamesFromState: state.games,
+    }
+};
+const mapDispatchToProps = (dispatch:Function, ownProps:any) => {
+    return {
+       categorizeGamesinState: (allGames:any, category: string) => dispatch(actions.categorizeGames(allGames, category))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withTheme(navigation));

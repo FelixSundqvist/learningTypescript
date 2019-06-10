@@ -7,8 +7,8 @@ import Products from '../../components/FrontPage/Products';
 import { Route } from 'react-router-dom'; 
 
 import axios from '../../axios-games'; 
+import Games from '../../assets/Games.json';
 import * as actions from '../../store/actions/actions';
-import jsonGames from '../../assets/fakewebpage-b18d3-export.json';
 import bgImage from '../../assets/images/mateusz-turbinski-1630732-unsplash.jpg';
 import ProductInfo from '../../components/FrontPage/ProductInfo/ProductInfo';
 import CartMessage from '../../components/UI/CartMessage/CartMessage'; 
@@ -53,17 +53,17 @@ const frontPage: React.FC<frontPageProps> = (props) => {
     }
 
     useEffect(() => {
-        props.addGamesToState(axios);
+        /* props.addGamesToState(axios); */
+        props.addGamesToState(Games)
     }, [])
 
     let gameRoutes, exactRoutes:any;
-
     if(props.gamesFromState){
         let gamesCopy:any = {...props.gamesFromState};
         gameRoutes = gamesRegex(gamesCopy);
         exactRoutes = gameRoutes.map((route:string) => <Route key={route} path={route} component={ProductInfo} />)
     }
-    
+     
     return (
         <>
         {exactRoutes}
@@ -72,11 +72,9 @@ const frontPage: React.FC<frontPageProps> = (props) => {
         </GalleryBg> 
         
         <FrontPage>
-            
             <ContentWrapper>                
                 <Products />
             </ContentWrapper>
-
         </FrontPage> 
         <CartMessage show={props.showAddedToCart} />
         </>

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import { menuAnimation } from '../../assets/animations';
-
 interface MenuInterface{
     theme?: any,
     toggleMenu: {
@@ -26,7 +25,6 @@ const menu:React.FC<MenuInterface> = (props: any) => {
         display: ${props.toggleMenu.delay ? "block" : "none"};
         ${ menuAnimation }
     `
-
     return(
         <Menu>
             {props.children}

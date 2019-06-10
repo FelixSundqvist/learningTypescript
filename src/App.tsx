@@ -13,7 +13,6 @@ interface AppInterface {
   
 }
 
-
 const App: React.FC<AppInterface> = (props) => {
   const App = styled.div`
     text-align: center;
@@ -31,13 +30,13 @@ const App: React.FC<AppInterface> = (props) => {
           <Header /> 
           <Menu /> 
           <Route path="/" component={FrontPage} />
+
+
 {/*           <Switch>
             
             <Route render={() => <h1>ooops something went wrong</h1>} />
 
           </Switch> */}
-          
-
           <Footer />
         </App>
       

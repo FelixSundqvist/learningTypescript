@@ -9,7 +9,9 @@ interface CardWrapperInterface {
     height?: string,
     backgroundColor?: string,
     games?: any,
-    gamesFromState: any
+    gamesFromState: any,
+    showFiltered: boolean,
+    filteredGames: any
 }
 
 const CardWrapper:React.FC<CardWrapperInterface> = props => {
@@ -28,7 +30,13 @@ const CardWrapper:React.FC<CardWrapperInterface> = props => {
         padding: 1.5em;
         
     ` 
-    const games = props.gamesFromState ? createCards(props.gamesFromState) : null;
+    let games = null;
+    
+    if(props.gamesFromState && !props.showFiltered){
+        games = createCards(props.gamesFromState);
+    }else if(props.gamesFromState && props.showFiltered){
+        games = createCards(props.filteredGames)
+    }
     
     return (
         <CardContainer>
@@ -38,7 +46,9 @@ const CardWrapper:React.FC<CardWrapperInterface> = props => {
 }
 const mapStateToProps = (state:any) => {
     return {
-        gamesFromState: state.games
+        gamesFromState: state.games,
+        showFiltered: state.showFiltered,
+        filteredGames: state.filteredGames
     }
 }
 export default connect(mapStateToProps)(withTheme(CardWrapper));

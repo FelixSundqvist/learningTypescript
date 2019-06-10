@@ -30,9 +30,11 @@ const products:React.FC<ProductsInterface> = (props) => {
     return (
             <ProductsPage>
                 <Wrapper>
+                    
                     <Segment title="Hottest Hits">
                         <CardWrapper />
                     </Segment>
+
                     <VideoSegment src="https://www.youtube.com/embed/nmZdyeCRgus" title="Check out the latest hit from Capcom" />
                     <Segment title="Free Delivery this week">
                         <InfoCircle />

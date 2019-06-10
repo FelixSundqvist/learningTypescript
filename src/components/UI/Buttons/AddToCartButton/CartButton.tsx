@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, {withTheme} from 'styled-components';
-import cartIcon from '../../../../assets/icons/shopping-cart-solid.svg'
+import cartIcon from '../../../../assets/icons/shopping-cart-white.svg';
 interface CartInterface{
     onClick?: any,
     theme?: any,

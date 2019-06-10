@@ -40,7 +40,7 @@ const ProductOptions: React.FC<ProductOptionsInterface> = (props) => {
     return (
         <Wrapper>
         <form>
-            <label>Avaible options: </label>
+            <label>Available options: </label>
             <select name="consoles" 
                 value = { props.value } 
                 onChange={ props.onChange }>

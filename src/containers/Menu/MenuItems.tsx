@@ -7,7 +7,8 @@ import MenuToggle from '../../components/UI/Buttons/MenuToggle/MenuToggle';
 import Menu from './Menu';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import CartToggle from '../../components/UI/Buttons/CartToggle/CartToggle';
-import Cart from '../../components/CartItems/Cart';
+import Cart from './CartItems/Cart';
+import * as actions from '../../store/actions/actions';
 
 interface MenuProps{
     theme?: Object,
@@ -26,6 +27,8 @@ const menu: React.FC<MenuProps> = (props) => {
         delay: false
     });
 
+    const [onChangeCart, setChangeCart] = useState()
+
     interface StateInterface{
         show: boolean,
         delay: boolean
@@ -36,7 +39,7 @@ const menu: React.FC<MenuProps> = (props) => {
         z-index: 9999;
         top: 0;
         right: 0;
-        width: 100vw;
+        width: ${toggleCart.delay ? "100vw" : "20vw"};
         @media (max-width: 992px){
             margin: 0;
         }
@@ -63,6 +66,13 @@ const menu: React.FC<MenuProps> = (props) => {
         setState(changedState);
         addDelay(changedState, setState);
     };
+
+    const changeCart = (event: any) => {
+        console.log(event.target.value);
+        if(event.target.value){
+            setChangeCart(event.target.value);
+        }
+    }
 
     const menuToggle = toggleVisible.bind(null, toggleMenu, setMenuToggle);
     const cartToggle = toggleVisible.bind(null, toggleCart, setCartToggle);
@@ -105,4 +115,10 @@ const mapStateToProps = (state: any) => {
     }
 }
 
-export default connect(mapStateToProps)(withTheme(menu));
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        changeAmount: () => dispatch(actions.cartChange())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withTheme(menu));

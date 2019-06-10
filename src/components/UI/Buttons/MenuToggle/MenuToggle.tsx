@@ -20,6 +20,7 @@ const menuToggle: React.FC<iconProps> = (props:any) => {
         opacity: 0.5;
         display: ${props.animationDelay ? "none" : "block"};
         transition: opacity 200ms ease;
+        margin: .5vw;
         &:hover {
             cursor: pointer;   
             opacity: 1;
